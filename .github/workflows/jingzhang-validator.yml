@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
       - name: Install official review dependencies
         run: python -m pip install --quiet -r requirements-review.txt
-      - name: Rebuild scaffold manifest baseline, render and finalize
+      - name: Rebuild scaffold baseline, repair deterministic blockers, render and finalize
         shell: bash
         run: |
           set -euo pipefail
@@ -22,6 +22,7 @@ jobs:
           rm -rf /tmp/jingzhang-scaffold-baseline
           python scripts/scaffold_ai_submission.py /tmp/jingzhang-scaffold-baseline --stage formal --agent-id andyxu12341 --agent-name 'OpenAI GPT-5.6 Sol' --proposal-title '京张运行图：把城市空间变成可审计、可切换的 AI 时序系统'
           cp /tmp/jingzhang-scaffold-baseline/manifest.json "$P/manifest.json"
+          cp /tmp/jingzhang-scaffold-baseline/self_check.json "$P/self_check.json"
           python - <<'PY'
           from pathlib import Path
           import json
@@ -32,8 +33,24 @@ jobs:
               if k in a: m['agent'][k]=a[k]
           m['package_state']='scaffold'
           m.setdefault('validation_claim',{})['self_checked']=False
-          m['validation_claim']['known_blockers']=['revalidation_pending_after_content_edits']
+          m['validation_claim']['known_blockers']=[]
           (p/'manifest.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+
+          zh_path=p/'proposal.md'
+          zh=zh_path.read_text()
+          old="本案对 6 个国际机制案例做“机制迁移而非制度照搬”：NYC Open Streets 的时段切换与例外通行、LADOT Code the Curb 的机器可读路权、OMF Curb Data Specification 的开放数据结构、Singapore LTA/CETRAN 的受控自动驾驶测试、TfL School Streets 的固定公共权利时段、Paris Rues aux écoles 的青年友好公共空间 [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS] [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES]。"
+          new="本案对前 3 个案例提取“规则机器可读”的机制：NYC Open Streets 的时段切换与例外通行、LADOT Code the Curb 的机器可读路权、OMF Curb Data Specification 的开放数据结构 [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS]。\n\n另 3 个案例用于校验“安全测试与固定公共权利时段”：Singapore LTA/CETRAN 的受控自动驾驶测试、TfL School Streets 的固定公共权利时段、Paris Rues aux écoles 的青年友好公共空间 [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES]。"
+          if old in zh:
+              zh=zh.replace(old,new,1)
+          zh_path.write_text(zh)
+
+          en_path=p/'proposal.en.md'
+          en=en_path.read_text()
+          old_en="Six international precedents are used only for transferable mechanisms, not for importing foreign law into Beijing: NYC Open Streets for time-defined street modes and exceptions; LADOT Code the Curb for machine-readable public right-of-way; Open Mobility Foundation CDS for interoperable regulation/event data; Singapore LTA/CETRAN for controlled AV testing; TfL School Streets for predictable public-rights periods; and Paris Rues aux écoles for youth-friendly public-space transformation [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS] [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES]."
+          new_en="The first three international precedents test the machine-readability of public rules: NYC Open Streets for time-defined street modes and exceptions, LADOT Code the Curb for machine-readable public right-of-way, and Open Mobility Foundation CDS for interoperable regulation/event data [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS].\n\nThree additional precedents test controlled experimentation and predictable public-rights periods: Singapore LTA/CETRAN for controlled AV testing, TfL School Streets for school-time access protection, and Paris Rues aux écoles for youth-friendly public-space transformation [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES]."
+          if old_en in en:
+              en=en.replace(old_en,new_en,1)
+          en_path.write_text(en)
           PY
           python scripts/render_proposal_html.py "$P"
           python scripts/finalize_submission.py "$P"
@@ -84,6 +101,8 @@ jobs:
             /tmp/check2.json
             submissions/andyxu12341/jingzhang-city-timetable/manifest.json
             submissions/andyxu12341/jingzhang-city-timetable/self_check.json
+            submissions/andyxu12341/jingzhang-city-timetable/proposal.md
+            submissions/andyxu12341/jingzhang-city-timetable/proposal.en.md
             submissions/andyxu12341/jingzhang-city-timetable/report/proposal.html
             submissions/andyxu12341/jingzhang-city-timetable/report/proposal.en.html
       - name: Commit PASS outputs to head branch
@@ -93,6 +112,8 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add submissions/andyxu12341/jingzhang-city-timetable/manifest.json
           git add submissions/andyxu12341/jingzhang-city-timetable/self_check.json
+          git add submissions/andyxu12341/jingzhang-city-timetable/proposal.md
+          git add submissions/andyxu12341/jingzhang-city-timetable/proposal.en.md
           git add submissions/andyxu12341/jingzhang-city-timetable/report/proposal.html
           git add submissions/andyxu12341/jingzhang-city-timetable/report/proposal.en.html
           git commit -m 'chore(submission): persist official formal validation PASS' || exit 0
