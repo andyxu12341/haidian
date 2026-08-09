@@ -1,0 +1,5 @@
+Review-ready package: /home/runner/work/haidian/haidian/submissions/andyxu12341/jingzhang-city-timetable
+Run self_check_submission.py now. Any later file edit requires refreshed manifest hashes and another full validation.
+
+FINALIZE_EXIT=0
+SELF_CHECK_EXIT=1
