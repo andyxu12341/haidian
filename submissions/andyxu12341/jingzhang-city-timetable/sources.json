@@ -1,0 +1,138 @@
+{
+  "schema_version": "0.1.0",
+  "sources": [
+    {
+      "id": "SITE-PACKAGE",
+      "path": "brief/site-package/",
+      "source_type": "official_public",
+      "usage": "Project brief, taskbook, allowed design space, enums, planning limits, standards and schemas."
+    },
+    {
+      "id": "SOURCE-REGISTRY",
+      "path": "data/source_registry.json",
+      "source_type": "repository_public_registry",
+      "usage": "Authoritative repository registry for distinguishing formal-ready, background-only and provisional-only inputs."
+    },
+    {
+      "id": "PROCESSED-FACT-PACK",
+      "path": "data/processed/agent_fact_pack.md",
+      "source_type": "repository_processed_reference",
+      "usage": "Navigation layer for scope, task and missing-data checks; not an independent authority source."
+    },
+    {
+      "id": "BOUNDARY-SOURCE",
+      "path": "brief/site-package/geometry/provisional_boundaries.geojson",
+      "source_type": "agent_inferred_from_public_data",
+      "usage": "Temporary submitted site-boundary source; provisional only and not an official redline."
+    },
+    {
+      "id": "KEY-AREA-SOURCE",
+      "path": "brief/site-package/geometry/provisional_boundaries.geojson",
+      "source_type": "agent_inferred_from_public_data",
+      "usage": "Temporary geometry for the three required key areas; provisional only."
+    },
+    {
+      "id": "OFFICIAL-ANNOUNCEMENT",
+      "url": "https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/tzgg/hd/202605/t20260509_4643047.html",
+      "source_type": "official_public",
+      "publisher": "北京市规划和自然资源委员会海淀分局",
+      "published_date": "2026-05-09",
+      "usage": "Official project name, organizers, scope descriptions, approximate area values, tasks and deliverable context.",
+      "usable_for_formal": "yes"
+    },
+    {
+      "id": "AGENT-TASKBOOK",
+      "path": "brief/site-package/agent_taskbook.json",
+      "source_type": "user_provided_cleared",
+      "usage": "Agent-facing principles, six design tasks, scenario/persona requirements, public compliance, branding and operation requirements.",
+      "usable_for_formal": "yes"
+    },
+    {
+      "id": "STD-URBAN-DESIGN",
+      "path": "brief/site-package/standards/references/mohurd-urban-design-measures.md",
+      "source_type": "official_standard_local_snapshot",
+      "usage": "Urban-design purpose, public space, city character and architecture-control reference.",
+      "usable_for_formal": "yes"
+    },
+    {
+      "id": "STD-CONTROL-PLAN",
+      "path": "brief/site-package/standards/references/mohurd-control-detailed-planning.md",
+      "source_type": "official_standard_local_snapshot",
+      "usage": "Separates known statutory controls, design proposals and data gaps.",
+      "usable_for_formal": "yes"
+    },
+    {
+      "id": "STD-LAND-USE",
+      "path": "brief/site-package/standards/references/mnr-land-use-classification-guide.md",
+      "source_type": "official_standard_local_snapshot",
+      "usage": "Land-use classification and structured land-use code reference.",
+      "usable_for_formal": "yes"
+    },
+    {
+      "id": "CASE-NYC-OPEN-STREETS-2026",
+      "title": "NYC Open Streets 2026",
+      "publisher": "New York City Department of Transportation",
+      "source_url": "https://www.nyc.gov/html/dot/html/pedestrians/openstreets.shtml",
+      "retrieved_at": "2026-08-10",
+      "source_type": "official_public_precedent",
+      "usage": "Precedent for streets that switch between full closure, limited local access and ordinary operation on explicitly published days and hours while maintaining emergency/access requirements.",
+      "limitations": "Governance, liability, street geometry and legal authority differ from Beijing; used only as a transferable operating mechanism, not as a local standard.",
+      "usable_for_formal": "background_only"
+    },
+    {
+      "id": "CASE-LADOT-CODE-THE-CURB",
+      "title": "Code the Curb",
+      "publisher": "Los Angeles Department of Transportation",
+      "source_url": "https://ladot.lacity.gov/codethecurb",
+      "retrieved_at": "2026-08-10",
+      "source_type": "official_public_precedent",
+      "usage": "Precedent for machine-readable public-right-of-way inventories and communicating static/dynamic curb regulations to people and mobility services.",
+      "limitations": "LADOT policy and curb inventory are jurisdiction-specific; concept transfer is limited to digital regulation representation and auditability.",
+      "usable_for_formal": "background_only"
+    },
+    {
+      "id": "CASE-OMF-CDS",
+      "title": "Curb Data Specification (CDS) 1.0",
+      "publisher": "Open Mobility Foundation",
+      "source_url": "https://www.openmobilityfoundation.org/its-official-curb-data-specification-cds-version-1-0/",
+      "retrieved_at": "2026-08-10",
+      "source_type": "open_standard_precedent",
+      "usage": "Precedent for publishing curb locations/regulations, events and metrics through an interoperable data structure; informs the TimeSlot Contract's machine-readable philosophy.",
+      "limitations": "CDS is a curb-management data specification, not a Beijing planning or AV safety standard.",
+      "usable_for_formal": "background_only"
+    },
+    {
+      "id": "CASE-SG-LTA-AV",
+      "title": "Autonomous Vehicles — Safety & Testing",
+      "publisher": "Singapore Land Transport Authority",
+      "source_url": "https://www.lta.gov.sg/content/ltagov/en/industry_innovations/technologies/autonomous_vehicles.html",
+      "retrieved_at": "2026-08-10",
+      "source_type": "official_public_precedent",
+      "usage": "Precedent for separating controlled AV safety assessment/testing from public-road deployment, requiring operational safeguards and data recording.",
+      "limitations": "Singapore law and CETRAN requirements do not apply in Beijing; this source supports the design principle that testing is not permission and that fail-safe/human accountability must be explicit.",
+      "usable_for_formal": "background_only"
+    },
+    {
+      "id": "CASE-TFL-SCHOOL-STREETS",
+      "title": "School Streets",
+      "publisher": "Transport for London",
+      "source_url": "https://travelforlife.tfl.gov.uk/activities/school-streets/",
+      "retrieved_at": "2026-08-10",
+      "source_type": "official_public_precedent",
+      "usage": "Precedent for temporary motor-traffic restrictions tied to school drop-off and pick-up times, demonstrating predictable time-based street rights.",
+      "limitations": "Local traffic orders and enforcement differ; used only to illustrate time-defined public-space operation.",
+      "usable_for_formal": "background_only"
+    },
+    {
+      "id": "CASE-PARIS-RUES-ECOLES",
+      "title": "Rues aux écoles",
+      "publisher": "Ville de Paris",
+      "source_url": "https://www.paris.fr/pages/57-nouvelles-rues-aux-ecoles-dans-paris-8197",
+      "retrieved_at": "2026-08-10",
+      "source_type": "official_public_precedent",
+      "usage": "Precedent for converting street space around schools into safer pedestrian/public space, supporting the youth-friendly and reversible-public-realm dimension.",
+      "limitations": "Not all Paris school streets use the same timing/closure mechanism; transfer is conceptual rather than regulatory.",
+      "usable_for_formal": "background_only"
+    }
+  ]
+}
