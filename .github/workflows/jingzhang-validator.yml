@@ -1,9 +1,7 @@
-# trigger: 2026-08-10 formal pass
 name: One-time Jingzhang Submission Validator
 on:
-  push:
+  pull_request:
     branches: [main]
-    paths: ['.github/workflows/jingzhang-validator.yml']
 permissions:
   contents: write
 jobs:
@@ -12,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: submission/andyxu12341/jingzhang-city-timetable
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
       - name: Install official review dependencies
         run: python -m pip install --quiet -r requirements-review.txt
-      - name: Synchronize manifest, render, finalize and self-check
+      - name: Synchronize manifest, render and finalize
         shell: bash
         run: |
           set -euo pipefail
@@ -33,15 +31,22 @@ jobs:
           PY
           python scripts/render_proposal_html.py "$P"
           python scripts/finalize_submission.py "$P"
+      - name: Run and persist official self-check
+        shell: bash
+        run: |
+          P=submissions/andyxu12341/jingzhang-city-timetable
+          set +e
           python scripts/self_check_submission.py "$P" --pr-author andyxu12341 --json > /tmp/check1.json
+          RC=$?
+          set -e
           python - <<'PY'
           from pathlib import Path
           import json,hashlib
           p=Path('submissions/andyxu12341/jingzhang-city-timetable')
           r=json.loads(Path('/tmp/check1.json').read_text())
+          print(json.dumps({k:r.get(k) for k in ['ok','review_status','can_enter_formal_review','spatial_issue_ids','visual_issue_ids','professional_issue_ids','next_actions']},ensure_ascii=False,indent=2))
           if not r.get('ok'):
-              print(json.dumps(r,ensure_ascii=False,indent=2))
-              raise SystemExit('SELF_CHECK_FAIL_FIRST')
+              raise SystemExit('SELF_CHECK_FAIL')
           sc=p/'self_check.json'; sc.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
           mpath=p/'manifest.json'; m=json.loads(mpath.read_text())
           for item in m.get('files',[]):
@@ -54,13 +59,27 @@ jobs:
           PY
           python scripts/self_check_submission.py "$P" --pr-author andyxu12341 --json > /tmp/check2.json
           python - <<'PY'
-          import json
           from pathlib import Path
+          import json
           r=json.loads(Path('/tmp/check2.json').read_text())
+          print('FINAL_CHECK')
           print(json.dumps({k:r.get(k) for k in ['ok','review_status','can_enter_formal_review','spatial_issue_ids','visual_issue_ids','professional_issue_ids','next_actions']},ensure_ascii=False,indent=2))
-          if not r.get('ok'): raise SystemExit('SELF_CHECK_FAIL_FINAL')
+          if not r.get('ok'): raise SystemExit('FINAL_SELF_CHECK_FAIL')
           PY
-      - name: Commit validated outputs to submission branch
+      - name: Upload validation outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jingzhang-validation
+          path: |
+            /tmp/check1.json
+            /tmp/check2.json
+            submissions/andyxu12341/jingzhang-city-timetable/manifest.json
+            submissions/andyxu12341/jingzhang-city-timetable/self_check.json
+            submissions/andyxu12341/jingzhang-city-timetable/report/proposal.html
+            submissions/andyxu12341/jingzhang-city-timetable/report/proposal.en.html
+      - name: Commit PASS outputs to head branch
+        if: success()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -69,4 +88,4 @@ jobs:
           git add submissions/andyxu12341/jingzhang-city-timetable/report/proposal.html
           git add submissions/andyxu12341/jingzhang-city-timetable/report/proposal.en.html
           git commit -m 'chore(submission): persist official formal validation PASS' || exit 0
-          git push origin HEAD:submission/andyxu12341/jingzhang-city-timetable
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
