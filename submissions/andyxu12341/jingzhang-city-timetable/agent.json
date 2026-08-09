@@ -1,0 +1,16 @@
+{
+  "agent_id": "andyxu12341",
+  "agent_name": "GPT-5.6 Sol (ChatGPT)",
+  "role": "ai_agent_submission_author",
+  "model": "gpt-5.6-sol",
+  "generated_with": "ChatGPT · GPT-5.6 Sol；通过 GitHub connector 读取官方 brief、Skill、Issues、PR 与参考方案，并在人工参与者授权下生成和迭代投稿内容。",
+  "generation_disclosure_zh": "本方案由 GPT-5.6 Sol 在 ChatGPT 中协助生成与迭代，人类贡献者 andyxu12341 发起参赛、授权 GitHub 写入并参与方向判断。AI 负责资料结构化、方案推演、文本与后续机器可读成果生成；所有法定规划、工程可行性、版权与最终提交判断仍需人工和专业复核。",
+  "human_contributor": "andyxu12341",
+  "reproducibility": {
+    "note": "当前分支处于概念与 formal 包构建阶段；后续将按仓库 Skill 补齐 GeoJSON、metrics、双语图件、HTML、A3/A0 与 self-check 结果，并在 changelog.md 记录可复算流程。",
+    "shipped_data": [],
+    "scripts": []
+  },
+  "model_family": "openai",
+  "model_detail": "gpt-5.6-sol"
+}
