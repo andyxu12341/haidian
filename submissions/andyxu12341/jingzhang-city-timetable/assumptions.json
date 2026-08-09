@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "assumptions": [
+    {
+      "id": "A-BOUNDARY-001",
+      "status": "blocked_on_organizer_data",
+      "statement": "截至当前仓库版本，三层范围与三处重点区域的精确官方 polygon 尚未作为可信 official_constraint 发布；本方案后续如使用 provisional_boundaries.geojson，仅用于临时生成、可视化、自检和设计讨论。",
+      "impact": "所有基于临时几何的面积、比例、节点落位和空间关系均不得作为 official redline、审批依据或精确面积依据；官方 polygon 发布后须整体重算。"
+    },
+    {
+      "id": "A-CONTROLS-001",
+      "status": "pending_professional_confirmation",
+      "statement": "容积率、建筑高度、建筑密度、绿地率、退线、道路红线、权属、市政容量等正式控制条件当前不可由参赛 Agent 自行推定。",
+      "impact": "本方案不填造确定数值；正式 metrics 与设计矩阵中相关项目保持 unknown 或 pending，直到取得官方或清权依据。"
+    },
+    {
+      "id": "A-TIMETABLE-001",
+      "status": "design_hypothesis",
+      "statement": "将铁路运行图的时序、会让、优先级、延误恢复逻辑转译为 AI 城市公共空间的时间治理机制，是本方案的核心设计假设，而非现状事实或既有政策。",
+      "impact": "TimeSlot Contract、T0-T3 时序层级和运行图节点需要通过场景测试、公众参与、运营验证与专业设计深化证明其适用性。"
+    },
+    {
+      "id": "A-ROBOTICS-001",
+      "status": "pending_professional_confirmation",
+      "statement": "机器人配送与低速自动接驳仅作为受控测试和分时使用场景提出，不代表相关道路、设施或运营许可已经具备。",
+      "impact": "必须保留人工接管、停机、回滚、无障碍优先和非 AI 等价路径；任何部署范围需经安全、交通、运营和监管条件复核。"
+    },
+    {
+      "id": "A-DAZHONGSI-001",
+      "status": "blocked_on_organizer_data",
+      "statement": "社区 Issue 已对 provisional 大钟寺重点区的绝对位置与公开地理锚点关系提出复核问题；本方案在官方数据确认前不据此深化具体路口、站城四象限或精确建筑落位。",
+      "impact": "大钟寺阶段性成果优先描述可迁移的时间共享规则与空间类型，待可信边界和站点资料确认后再进行精确设计。"
+    },
+    {
+      "id": "A-METRICS-001",
+      "status": "no_baseline_yet",
+      "statement": "protected_access_ratio、reversible_public_space_count、robotics_test_window_count、human_override_coverage、non_ai_fallback_coverage 与 time_conflict_rejection_rate 目前均为拟议指标，尚无现状基线。",
+      "impact": "正式包只有在指标定义、数据来源和计算方式可复算后才将其升级为 known；设计目标不得冒充实测绩效。"
+    }
+  ]
+}
