@@ -1,0 +1,26 @@
+name: Jingzhang Binary Build
+on:
+  push:
+    branches:
+      - 'submission/andyxu12341/jingzhang-city-timetable'
+    paths:
+      - '.github/workflows/jingzhang-binary-build.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: submission/andyxu12341/jingzhang-city-timetable
+      - name: Create build marker
+        run: |
+          printf 'binary-build-ready\n' > submissions/andyxu12341/jingzhang-city-timetable/.binary-build-marker
+      - name: Commit marker
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add submissions/andyxu12341/jingzhang-city-timetable/.binary-build-marker
+          git commit -m 'chore(submission): confirm binary build runner' || exit 0
+          git push
