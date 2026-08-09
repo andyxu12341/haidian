@@ -14,13 +14,144 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: submission/andyxu12341/jingzhang-city-timetable
-      - name: Create build marker
+      - name: Install rendering dependencies
         run: |
-          printf 'binary-build-ready\n' > submissions/andyxu12341/jingzhang-city-timetable/.binary-build-marker
-      - name: Commit marker
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+          python -m pip install --quiet matplotlib pillow reportlab
+      - name: Render bilingual formal assets
+        run: |
+          cat > /tmp/build_assets.py <<'PY'
+          from pathlib import Path
+          import numpy as np
+          import matplotlib.pyplot as plt
+          import matplotlib.font_manager as fm
+          from matplotlib.patches import FancyBboxPatch
+          from reportlab.pdfgen import canvas
+          from reportlab.lib.pagesizes import A3, A0, landscape
+          from reportlab.lib.units import mm
+          from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+          from reportlab.pdfbase import pdfmetrics
+          from reportlab.lib.utils import ImageReader
+
+          root=Path('submissions/andyxu12341/jingzhang-city-timetable')
+          figdir=root/'assets'/'figures'; figdir.mkdir(parents=True,exist_ok=True)
+          drawdir=root/'drawings'; drawdir.mkdir(parents=True,exist_ok=True)
+          fonts={f.name for f in fm.fontManager.ttflist}
+          for name in ['Noto Sans CJK SC','Noto Sans CJK TC','Noto Sans CJK JP','DejaVu Sans']:
+              if name in fonts:
+                  plt.rcParams['font.family']=name; break
+          plt.rcParams['axes.unicode_minus']=False
+
+          site=np.array([[116.3407,39.939],[116.3553,39.939],[116.3553,39.965],[116.3533,39.99],[116.3553,40.0265],[116.3427,40.0265],[116.3417,40.006],[116.3397,39.975],[116.3407,39.939]])
+          keys=[
+            np.array([[116.343,40.0075],[116.354,40.0075],[116.354,40.026],[116.343,40.026],[116.343,40.0075]]),
+            np.array([[116.342,39.9835],[116.353,39.9835],[116.353,39.9935],[116.342,39.9935],[116.342,39.9835]]),
+            np.array([[116.342,39.944],[116.355,39.944],[116.355,39.94984],[116.342,39.94984],[116.342,39.944]])]
+          time_spine=np.array([[116.3473,39.941],[116.3474,39.96],[116.3476,39.985],[116.348,40.01],[116.3483,40.024]])
+          t0=np.array([[116.346,39.94],[116.3462,39.965],[116.3465,39.99],[116.3468,40.015],[116.347,40.025]])
+          crosses=[np.array([[116.3422,39.947],[116.3535,39.947]]),np.array([[116.3422,39.9885],[116.35342,39.9885]]),np.array([[116.3422,40.016],[116.3535,40.016]])]
+          bands=[
+            np.array([[116.3407,39.939],[116.3397,39.975],[116.3417,40.006],[116.3427,40.0265],[116.344068,40.0265],[116.344068,39.939]]),
+            np.array([[116.344068,39.939],[116.344068,40.0265],[116.347188,40.0265],[116.347188,39.939]]),
+            np.array([[116.347188,39.939],[116.347188,40.0265],[116.351244,40.0265],[116.351244,39.939]]),
+            np.array([[116.351244,39.939],[116.351244,40.0265],[116.3553,40.0265],[116.3533,39.99],[116.3553,39.965],[116.3553,39.939]])]
+          greens=[np.array([[116.3455,39.939],[116.3455,40.0265],[116.3493,40.0265],[116.3493,39.939]]),keys[0][[0,1,1,0,0]] if False else np.array([[116.343,40.0075],[116.343,40.01083],[116.354,40.01083],[116.354,40.0075]]),np.array([[116.342,39.9835],[116.342,39.9853],[116.353,39.9853],[116.353,39.9835]]),np.array([[116.342,39.944],[116.342,39.9450512],[116.355,39.9450512],[116.355,39.944]])]
+          nodes=[(116.3480,40.0160,'HALL'),(116.3475,39.9885,'EXCHANGE'),(116.3474,39.9470,'DEPARTURE'),(116.3510,40.0200,'TEST'),(116.3500,39.9905,'DEMO'),(116.3505,39.9460,'LIFE')]
+
+          ZH={'overview':'京张运行图｜总体概念与三层范围','sub':'空间不是静态容器，而是一张带优先级、时间窗、人工接管和回滚规则的城市运行图','prov':'临时粗略几何｜非官方红线｜官方 polygon 发布后整体复算','areas':['众智园｜测试与安全','AI原点社区｜24h共创','大钟寺｜人流/消费/物流错峰'],'land':'用地与时序结构｜从 Space Plan 到 Time Plan','codes':['0802 研发创新','1401 绿地开敞','05 商业产业服务','0702 社区服务'],'key':'三个重点区｜三种时间治理任务','cards':[('众智园','AI运行图测试场','4 个测试验证场景','受控测试 / 人工接管 / 停止与回滚'),('北京AI原点社区','24h 共创时序社区','Demo Night + 免App服务','居民休息 / 无障碍 / 非AI等价路径'),('大钟寺','智能原生生活时序场','高峰人流优先 / 低峰物流','几何 provisional / 暂不深化站城四象限')],'pil':'朝圣节点：运行图大厅 · 时间交换站 · 百年发车台','mob':'交通 × 蓝绿 × T0权利｜连续性优先于调度效率','metrics':'指标与证据链｜把“AI城市”变成可检查的合同','mc':[('11.413 km²','临时总体边界'),('12','AI+ 场景卡'),('4','测试验证场景'),('6','可逆公共空间'),('100%','人工复核字段覆盖'),('100%','非AI fallback覆盖')],'note':'100% 是设计合同字段覆盖率，不是真实运营绩效。','chain':['TimeSlot Contract','12 场景','9 GeoJSON','metrics','三套矩阵','A3/A0 + self-check'],'src':'依据：官方公告、Agent任务书、repo provisional boundaries；设计图层均为概念建议。'}
+          EN={'overview':'THE CITY TIMETABLE | Overall Concept & Scope','sub':'Urban space becomes an operating diagram with priority, time windows, human override and rollback.','prov':'PROVISIONAL ROUGH GEOMETRY | NOT AN OFFICIAL REDLINE | Recalculate after official polygons','areas':['Zhongzhiyuan | Testing & Safety','AI Origin Community | 24h Co-creation','Dazhongsi | Peak/Off-peak Sharing'],'land':'Land Use + Time Structure | From Space Plan to Time Plan','codes':['0802 R&D / Innovation','1401 Green / Open Space','05 Commercial / Industry Service','0702 Community Service'],'key':'Three Key Areas | Three Time-governance Tasks','cards':[('Zhongzhiyuan','AI Timetable Testing Ground','4 test-validation scenarios','Controlled test / human takeover / stop & rollback'),('Beijing AI Origin Community','24h Co-creation Timetable Community','Demo Night + no-app services','Resident quiet / accessibility / non-AI equivalents'),('Dazhongsi','AI-native Everyday-life Timetable','People-first peak / logistics off-peak','Geometry provisional / no precise station-quadrant design')],'pil':'Pilgrimage nodes: TIMETABLE HALL · TIME EXCHANGE · CENTENNIAL DEPARTURE','mob':'Mobility × Blue-Green × T0 Rights | Continuity Before Scheduling Efficiency','metrics':'Metrics & Evidence Chain | Making the AI City Checkable','mc':[('11.413 km²','Provisional overall area'),('12','AI+ scenarios'),('4','Test-validation scenarios'),('6','Reversible public spaces'),('100%','Human-review field coverage'),('100%','Non-AI fallback coverage')],'note':'100% means design-contract field coverage, not observed performance.','chain':['TimeSlot Contract','12 Scenarios','9 GeoJSON','metrics','3 Matrices','A3/A0 + self-check'],'src':'Basis: official announcement, Agent taskbook and repo provisional boundaries. Design layers are conceptual.'}
+
+          def figbase(title,sub=''):
+              f=plt.figure(figsize=(12,7.5),dpi=150); a=f.add_axes([.06,.09,.88,.80]); a.set_title(title,loc='left',fontsize=19,fontweight='bold',pad=18)
+              if sub: f.text(.06,.92,sub,fontsize=9.5)
+              return f,a
+          def bound(a): a.plot(site[:,0],site[:,1],ls='--',lw=1.7,alpha=.4); a.fill(site[:,0],site[:,1],alpha=.025)
+          def clean(a):
+              a.set_xlim(116.3378,116.3572); a.set_ylim(39.9355,40.0303); a.set_xticks([]); a.set_yticks([]); a.set_aspect(.18)
+              for s in a.spines.values(): s.set_visible(False)
+          def save(f,name): f.savefig(figdir/name,bbox_inches='tight'); plt.close(f)
+
+          def make_over(t,name):
+              f,a=figbase(t['overview'],t['sub']); bound(a)
+              for i,p in enumerate(keys):
+                  a.fill(p[:,0],p[:,1],alpha=.16,hatch=['///','xx','..'][i]); a.plot(p[:,0],p[:,1],lw=1.3)
+                  cx,cy=p[:-1].mean(axis=0); xoff=116.3379 if i!=1 else 116.3384; a.annotate(t['areas'][i],(cx,cy),xytext=(xoff,cy),textcoords='data',arrowprops={'arrowstyle':'-','lw':.9},fontsize=8.7,va='center')
+              a.plot(time_spine[:,0],time_spine[:,1],lw=4,alpha=.8); a.text(116.349,39.969,'TIME SPINE',fontsize=8,fontweight='bold')
+              for x,y,l in nodes[:3]: a.scatter([x],[y],s=70,marker='D'); a.annotate(l,(x,y),xytext=(6,5),textcoords='offset points',fontsize=7)
+              f.text(.06,.035,t['prov']+'\n'+t['src'],fontsize=8,alpha=.75); clean(a); save(f,name)
+          def make_land(t,name):
+              f,a=figbase(t['land']); bound(a)
+              for i,p in enumerate(bands): a.fill(p[:,0],p[:,1],alpha=.16,hatch=['///','..','xx','\\\\'][i]); a.plot(p[:,0],p[:,1],lw=1)
+              ys=[40.022,40.014,40.006,39.998]
+              for i,(lab,y) in enumerate(zip(t['codes'],ys)): a.text(116.3383,y,lab,fontsize=8.4,va='center'); a.annotate('',xy=(116.344+i*.0024,y),xytext=(116.341,y),arrowprops={'arrowstyle':'->','lw':.9})
+              a.plot(time_spine[:,0],time_spine[:,1],lw=4,alpha=.7)
+              for j,(yy,lab) in enumerate(zip([39.976,39.973,39.970,39.967],['T0','T1','T2','T3'])): a.plot([116.350,116.3545-j*.0004],[yy,yy],lw=5,alpha=.5); a.text(116.3497,yy,lab,ha='right',va='center',fontsize=8)
+              f.text(.06,.035,t['prov']+'\nFAR / height / density = unknown until official controls.',fontsize=8,alpha=.75); clean(a); save(f,name)
+          def make_key(t,name):
+              f,a=figbase(t['key']); a.set_xlim(0,100); a.set_ylim(0,100); a.axis('off')
+              for i,(n,r,c,rule) in enumerate(t['cards']):
+                  x=4+i*32; b=FancyBboxPatch((x,20),28,62,boxstyle='round,pad=.6,rounding_size=2',fill=False,lw=1.6); a.add_patch(b)
+                  a.text(x+2,76,n,fontsize=12,fontweight='bold',va='top'); a.text(x+2,67,r,fontsize=9.5,va='top',wrap=True); a.plot([x+2,x+25],[60,60],lw=2)
+                  a.text(x+2,53,c,fontsize=9,fontweight='bold'); a.text(x+2,45,rule,fontsize=8.2,va='top',wrap=True)
+                  for k,y in enumerate([35,30,25]): a.plot([x+3,x+24],[y,y],lw=1,alpha=.55); a.scatter([x+7+k*3,x+16+k*2],[y,y],s=24)
+              a.text(4,10,t['pil'],fontsize=10,fontweight='bold'); a.text(4,4,t['prov'],fontsize=8,alpha=.7); save(f,name)
+          def make_mob(t,name):
+              f,a=figbase(t['mob']); bound(a)
+              for p in greens: a.fill(p[:,0],p[:,1],alpha=.10,hatch='..'); a.plot(p[:,0],p[:,1],lw=.8,alpha=.65)
+              a.plot(time_spine[:,0],time_spine[:,1],lw=4,alpha=.7,label='Time Spine'); a.plot(t0[:,0],t0[:,1],ls='--',lw=3,label='T0')
+              for l in crosses: a.plot(l[:,0],l[:,1],ls='--',lw=2.2)
+              for x,y,l in nodes: a.scatter([x],[y],s=58); a.annotate(l,(x,y),xytext=(5,4),textcoords='offset points',fontsize=7)
+              a.legend(loc='lower right',frameon=False,fontsize=8); f.text(.06,.035,t['prov']+'\nT0 = design-protocol right, not statutory road/fire redline.',fontsize=8,alpha=.75); clean(a); save(f,name)
+          def make_metrics(t,name):
+              f,a=figbase(t['metrics']); a.set_xlim(0,100); a.set_ylim(0,100); a.axis('off')
+              for (v,l),(x,y) in zip(t['mc'],[(4,65),(36,65),(68,65),(4,43),(36,43),(68,43)]):
+                  b=FancyBboxPatch((x,y),28,17,boxstyle='round,pad=.6,rounding_size=1.5',fill=False,lw=1.3); a.add_patch(b); a.text(x+2,y+10.5,v,fontsize=16,fontweight='bold'); a.text(x+2,y+4,l,fontsize=8.4)
+              a.text(4,34,t['note'],fontsize=8.5,alpha=.75); xs=np.linspace(8,91,6)
+              for i,(x,l) in enumerate(zip(xs,t['chain'])):
+                  a.scatter([x],[21],s=95,marker='s'); a.text(x,14,l,ha='center',fontsize=7.6)
+                  if i<5: a.annotate('',xy=(xs[i+1]-2,21),xytext=(x+2,21),arrowprops={'arrowstyle':'->','lw':1})
+              a.text(4,5,'PASS: T0 continuous  |  FAIL: block sole accessible/emergency route',fontsize=8.5,fontweight='bold'); save(f,name)
+
+          for t,sfx in [(ZH,''),(EN,'.en')]:
+              make_over(t,'site-overview'+sfx+'.png'); make_land(t,'land-use-structure'+sfx+'.png'); make_key(t,'key-areas'+sfx+'.png'); make_mob(t,'mobility-bluegreen'+sfx+'.png'); make_metrics(t,'metrics-evidence'+sfx+'.png')
+
+          pdfmetrics.registerFont(UnicodeCIDFont('STSong-Light'))
+          def draw_fitted(c,path,x,y,w,h):
+              from PIL import Image
+              im=Image.open(path); iw,ih=im.size; scale=min(w/iw,h/ih); nw,nh=iw*scale,ih*scale
+              c.drawImage(ImageReader(str(path)),x+(w-nw)/2,y+(h-nh)/2,nw,nh,preserveAspectRatio=True,mask='auto')
+          def text(c,txt,x,y,size=10,zh=True):
+              c.setFont('STSong-Light' if zh else 'Helvetica',size); c.drawString(x,y,txt)
+          def booklet(lang='zh'):
+              zh=lang=='zh'; sfx='' if zh else '.en'; path=drawdir/('a3-booklet.pdf' if zh else 'a3-booklet.en.pdf'); W,H=landscape(A3); c=canvas.Canvas(str(path),pagesize=(W,H))
+              titles=(['京张运行图 / THE CITY TIMETABLE','01 总体概念与范围','02 用地 + 时间结构','03 三个重点区','04 交通、蓝绿与T0权利','05 指标、证据与实施边界'] if zh else ['THE CITY TIMETABLE / 京张运行图','01 Overall Concept & Scope','02 Land Use + Time Structure','03 Three Key Areas','04 Mobility, Blue-Green & T0 Rights','05 Metrics, Evidence & Boundaries'])
+              imgs=['site-overview','site-overview','land-use-structure','key-areas','mobility-bluegreen','metrics-evidence']
+              for i,(title,img) in enumerate(zip(titles,imgs)):
+                  text(c,title,22*mm,H-18*mm,19,zh); text(c,'OPEN-CALL CONCEPT / FORMAL WORKING PACKAGE',22*mm,H-26*mm,7,False)
+                  draw_fitted(c,figdir/(img+sfx+'.png'),20*mm,22*mm,W-40*mm,H-55*mm)
+                  text(c,('临时几何非官方红线；所有精确指标待 official polygons 后整体复算。' if zh else 'Provisional geometry is not an official redline; precise metrics require full recalculation after official polygons.'),22*mm,11*mm,7,zh)
+                  c.showPage()
+              c.save()
+          def boards(lang='zh'):
+              zh=lang=='zh'; sfx='' if zh else '.en'; path=drawdir/('a0-boards.pdf' if zh else 'a0-boards.en.pdf'); W,H=landscape(A0); c=canvas.Canvas(str(path),pagesize=(W,H))
+              pages=[('A0-01  京张运行图：空间 × 时间 × 权利' if zh else 'A0-01  THE CITY TIMETABLE: Space × Time × Rights',['site-overview','key-areas']),('A0-02  从运行协议到可核验城市设计' if zh else 'A0-02  From Operating Protocol to Verifiable Urban Design',['mobility-bluegreen','metrics-evidence'])]
+              for title,imgs in pages:
+                  text(c,title,28*mm,H-26*mm,28,zh); text(c,'PROVISIONAL GEOMETRY / CONCEPT DESIGN / NOT APPROVED',28*mm,H-38*mm,10,False)
+                  gap=14*mm; left=24*mm; y=30*mm; h=H-78*mm; w=(W-2*left-gap)/2
+                  draw_fitted(c,figdir/(imgs[0]+sfx+'.png'),left,y,w,h); draw_fitted(c,figdir/(imgs[1]+sfx+'.png'),left+w+gap,y,w,h)
+                  text(c,('T0恒定权利优先于全部算法调度；AI只建议，人工责任、停止与回滚不可缺失。' if zh else 'T0 constant rights override all algorithmic scheduling; AI suggests, while human accountability, stop and rollback remain mandatory.'),28*mm,14*mm,10,zh)
+                  c.showPage()
+              c.save()
+          booklet('zh'); booklet('en'); boards('zh'); boards('en')
+          print('rendered',len(list(figdir.glob('*.png'))),'figures and',len(list(drawdir.glob('*.pdf'))),'PDFs')
+          PY
+          python /tmp/build_assets.py
+      - name: Commit binary deliverables
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add submissions/andyxu12341/jingzhang-city-timetable/.binary-build-marker
-          git commit -m 'chore(submission): confirm binary build runner' || exit 0
+          git add submissions/andyxu12341/jingzhang-city-timetable/assets/figures/*.png
+          git add submissions/andyxu12341/jingzhang-city-timetable/drawings/*.pdf
+          git commit -m 'feat(submission): render bilingual figures and A3/A0 drawings' || exit 0
           git push
