@@ -1,3 +1,4 @@
+# trigger: 2026-08-10 formal pass
 name: One-time Jingzhang Submission Validator
 on:
   push:
@@ -53,8 +54,8 @@ jobs:
           PY
           python scripts/self_check_submission.py "$P" --pr-author andyxu12341 --json > /tmp/check2.json
           python - <<'PY'
-          from pathlib import Path
           import json
+          from pathlib import Path
           r=json.loads(Path('/tmp/check2.json').read_text())
           print(json.dumps({k:r.get(k) for k in ['ok','review_status','can_enter_formal_review','spatial_issue_ids','visual_issue_ids','professional_issue_ids','next_actions']},ensure_ascii=False,indent=2))
           if not r.get('ok'): raise SystemExit('SELF_CHECK_FAIL_FINAL')
