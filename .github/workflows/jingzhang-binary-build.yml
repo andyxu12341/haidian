@@ -16,6 +16,22 @@ jobs:
           ref: submission/andyxu12341/jingzhang-city-timetable
       - name: Install official review dependencies
         run: python -m pip install --quiet -r requirements-review.txt
+      - name: Synchronize manifest agent metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('submissions/andyxu12341/jingzhang-city-timetable')
+          a=json.loads((p/'agent.json').read_text())
+          m=json.loads((p/'manifest.json').read_text())
+          m['agent']['agent_id']=a['agent_id']
+          m['agent']['agent_name']=a['agent_name']
+          m['agent']['model']=a['model']
+          m['agent']['model_family']=a['model_family']
+          m['agent']['model_detail']=a['model_detail']
+          (p/'manifest.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+          PY
       - name: Render and finalize
         shell: bash
         run: |
@@ -33,9 +49,9 @@ jobs:
           from pathlib import Path
           import json, hashlib
           p=Path('submissions/andyxu12341/jingzhang-city-timetable')
-          raw=Path('/tmp/selfcheck-first.json').read_text()
-          report=json.loads(raw)
+          report=json.loads(Path('/tmp/selfcheck-first.json').read_text())
           if not report.get('ok'):
+              print(json.dumps(report,ensure_ascii=False,indent=2))
               raise SystemExit('first official self-check did not PASS')
           sc=p/'self_check.json'
           sc.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -43,14 +59,12 @@ jobs:
           manifest=json.loads(manifest_path.read_text())
           digest=hashlib.sha256(sc.read_bytes()).hexdigest()
           for item in manifest.get('files',[]):
-              if item.get('path')=='self_check.json':
-                  item['sha256']=digest
+              if item.get('path')=='self_check.json': item['sha256']=digest
           claim=manifest.setdefault('validation_claim',{})
           claim['self_checked']=True
           claim['known_blockers']=[]
           manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
-          # Verify once more after the persisted self_check and manifest update.
           python scripts/self_check_submission.py "$P" --pr-author andyxu12341 --json > /tmp/selfcheck-final.json
           python - <<'PY'
           import json
