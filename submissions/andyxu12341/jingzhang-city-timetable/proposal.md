@@ -42,7 +42,9 @@ iteration: "v0.2-formal"
 
 传统空间规划回答“什么在什么地方”，京张运行图增加“什么在什么时候发生、冲突时谁必须让行”。总体形成一条约 9.22 km 的概念**时间主脊**和三个重点区时序接口 [data:geometry/roads.geojson#ROAD-001] [metric:time_spine_length_m]。
 
-本案对 6 个国际机制案例做“机制迁移而非制度照搬”：NYC Open Streets 的时段切换与例外通行、LADOT Code the Curb 的机器可读路权、OMF Curb Data Specification 的开放数据结构、Singapore LTA/CETRAN 的受控自动驾驶测试、TfL School Streets 的固定公共权利时段、Paris Rues aux écoles 的青年友好公共空间 [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS] [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES]。
+本案对前 3 个案例提取“规则机器可读”的机制：NYC Open Streets 的时段切换与例外通行、LADOT Code the Curb 的机器可读路权、OMF Curb Data Specification 的开放数据结构 [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS]。
+
+另 3 个案例用于校验“安全测试与固定公共权利时段”：Singapore LTA/CETRAN 的受控自动驾驶测试、TfL School Streets 的固定公共权利时段、Paris Rues aux écoles 的青年友好公共空间 [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES]。
 
 由此得到的核心结论是：**AI 原生城市不是传感器更多，而是规则能够被人理解、被机器读取、被责任人复核，并在失败时安全退回。**
 

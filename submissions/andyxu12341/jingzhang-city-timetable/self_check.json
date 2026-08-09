@@ -1,386 +1,66 @@
 {
-  "ok": false,
-  "submission_dir": "submissions/andyxu12341/jingzhang-city-timetable",
-  "pr_author": "andyxu12341",
-  "stage": "formal",
-  "deterministic_validation": {
-    "returncode": 1,
-    "ok": false,
-    "stdout": {
-      "ok": false,
-      "errors": [
-        "submissions/andyxu12341/jingzhang-city-timetable/.binary-build-marker: each proposal directory may contain proposal.md, proposal.zh.md, proposal.en.md, changelog.md, maintainer-only FEEDBACK.md, risk.json, spatial.json, simulation.json, AI package files, assets/*, geometry/*, drawings/*, report/*, and localized visual/index HTML plus visual/assets/* only",
-        "submissions/andyxu12341/jingzhang-city-timetable/manifest.json: agent: model_family must be one of: claude, deepseek, glm, gpt, grok, kimi, other, qwen",
-        "submissions/andyxu12341/jingzhang-city-timetable/manifest.json: listed file `report/narrative.md` is missing",
-        "submissions/andyxu12341/jingzhang-city-timetable/agent.json: model_family must be one of: claude, deepseek, glm, gpt, grok, kimi, other, qwen",
-        "submissions/andyxu12341/jingzhang-city-timetable/standard_matrix.json: standards[5]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[4]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[5]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[6]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[7]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[8]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[11]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[12]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[13]: self_check_ids must be a non-empty string array",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[0]: unknown layer `BUILDING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[1]: unknown layer `BUILDING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[2]: unknown layer `BUILDING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[3]: unknown layer `BUILDING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[4]: unknown layer `BUILDING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[5]: unknown layer `BUILDING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[0]: unknown layer `CONSTRAINT`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[1]: unknown layer `CONSTRAINT`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[2]: unknown layer `CONSTRAINT`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[3]: unknown layer `CONSTRAINT`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/phasing.geojson: feature[0]: unknown layer `PHASING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/phasing.geojson: feature[1]: unknown layer `PHASING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/phasing.geojson: feature[2]: unknown layer `PHASING`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[0]: unknown layer `ROAD`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[1]: unknown layer `ROAD`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[2]: unknown layer `ROAD`",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[3]: unknown layer `ROAD`",
-        "submissions/andyxu12341/jingzhang-city-timetable/proposal.md: section `更新项目清单、实施政策与分期计划` must include at least one machine-readable evidence reference such as [source:...], [standard:...], [depth:...], [data:...], or [metric:...]",
-        "submissions/andyxu12341/jingzhang-city-timetable/proposal.md: section `指标体系、面积复算与合规矩阵` must include at least one machine-readable evidence reference such as [source:...], [standard:...], [depth:...], [data:...], or [metric:...]",
-        "submissions/andyxu12341/jingzhang-city-timetable/proposal.md: section `风险、版权与合规说明` must include at least one machine-readable evidence reference such as [source:...], [standard:...], [depth:...], [data:...], or [metric:...]",
-        "submissions/andyxu12341/jingzhang-city-timetable/changelog.md: missing title `# 方案迭代记录`",
-        "submissions/andyxu12341/jingzhang-city-timetable/changelog.md: add at least one version heading like `## v0.1 - 2026-06-14`"
-      ],
-      "warnings": [
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/site_boundary.geojson: uses provisional boundary; do not treat it as an official redline or precise-area basis. Organizer data gaps do not block content scoring; recalculate when official geometry is supplied"
-      ],
-      "proposal_files": [
-        "submissions/andyxu12341/jingzhang-city-timetable/proposal.md"
-      ],
-      "changelog_files": [
-        "submissions/andyxu12341/jingzhang-city-timetable/changelog.md"
-      ],
-      "changed_files": [
-        "submissions/andyxu12341/jingzhang-city-timetable/.binary-build-marker",
-        "submissions/andyxu12341/jingzhang-city-timetable/agent.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/key-areas.en.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/key-areas.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/land-use-structure.en.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/land-use-structure.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/metrics-evidence.en.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/metrics-evidence.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/mobility-bluegreen.en.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/mobility-bluegreen.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/site-overview.en.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assets/figures/site-overview.png",
-        "submissions/andyxu12341/jingzhang-city-timetable/assumptions.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/changelog.md",
-        "submissions/andyxu12341/jingzhang-city-timetable/compliance_matrix.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/drawings/a0-boards.en.pdf",
-        "submissions/andyxu12341/jingzhang-city-timetable/drawings/a0-boards.pdf",
-        "submissions/andyxu12341/jingzhang-city-timetable/drawings/a3-booklet.en.pdf",
-        "submissions/andyxu12341/jingzhang-city-timetable/drawings/a3-booklet.pdf",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/green_space.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/key_areas.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/land_use.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/phasing.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/public_space.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/geometry/site_boundary.geojson",
-        "submissions/andyxu12341/jingzhang-city-timetable/manifest.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/metrics.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/proposal.en.md",
-        "submissions/andyxu12341/jingzhang-city-timetable/proposal.md",
-        "submissions/andyxu12341/jingzhang-city-timetable/report/copyright_statement.md",
-        "submissions/andyxu12341/jingzhang-city-timetable/report/proposal.en.html",
-        "submissions/andyxu12341/jingzhang-city-timetable/report/proposal.html",
-        "submissions/andyxu12341/jingzhang-city-timetable/self_check.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/sources.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/standard_matrix.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/visual/assets/scenarios.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/visual/assets/timeslot_contract.json",
-        "submissions/andyxu12341/jingzhang-city-timetable/visual/index.en.html",
-        "submissions/andyxu12341/jingzhang-city-timetable/visual/index.html"
-      ],
-      "ai_package_stages": {
-        "submissions/andyxu12341/jingzhang-city-timetable": "formal"
-      },
-      "total_bytes": 3579810,
-      "maintainer_bypass": false
+  "schema_version": "0.1.0",
+  "generated_by": "self_check_submission.py --json; persisted by fork-only validation workflow",
+  "checks": [
+    {
+      "check_id": "DETERMINISTIC_VALIDATION",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "package",
+      "message": "确定性格式与安全校验：通过（scripts/self_check_submission.py 实跑）"
     },
-    "stderr": ""
-  },
-  "spatial_review": {
-    "returncode": 1,
-    "ok": false,
-    "stdout": {
-      "ok": false,
-      "stage": "formal",
-      "issues": [
-        {
-          "check_id": "KEY_AREA_PROVISIONAL",
-          "severity": "minor",
-          "target_file": "geometry/key_areas.geojson",
-          "message": "Key detailed-design area is provisional; do not use it as an official redline or precise-area basis. Content scoring remains eligible.",
-          "target_feature_id": "PROV-KEY-001",
-          "expected": null,
-          "actual": null
-        },
-        {
-          "check_id": "KEY_AREA_PROVISIONAL",
-          "severity": "minor",
-          "target_file": "geometry/key_areas.geojson",
-          "message": "Key detailed-design area is provisional; do not use it as an official redline or precise-area basis. Content scoring remains eligible.",
-          "target_feature_id": "PROV-KEY-002",
-          "expected": null,
-          "actual": null
-        },
-        {
-          "check_id": "KEY_AREA_PROVISIONAL",
-          "severity": "minor",
-          "target_file": "geometry/key_areas.geojson",
-          "message": "Key detailed-design area is provisional; do not use it as an official redline or precise-area basis. Content scoring remains eligible.",
-          "target_feature_id": "PROV-KEY-003",
-          "expected": null,
-          "actual": null
-        },
-        {
-          "check_id": "METRIC_RECALC_MISMATCH",
-          "severity": "major",
-          "target_file": "metrics.json",
-          "message": "green_ratio does not match spatial recomputation.",
-          "target_feature_id": null,
-          "expected": 0.315058,
-          "actual": 0.334576
-        }
-      ],
-      "metrics": {
-        "site_area_sqm": 11412825.386,
-        "green_space_area_sqm": 3595698.509,
-        "public_space_area_sqm": 170721.429,
-        "building_footprint_area_sqm": 88628.915,
-        "green_ratio": 0.315058,
-        "public_space_ratio": 0.014959
-      }
+    {
+      "check_id": "SPATIAL_REVIEW",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "geometry/",
+      "message": "空间拓扑审查：通过；三处 KEY_AREA 保持 provisional 警示，不阻断 formal review。"
     },
-    "stderr": ""
-  },
-  "visual_review": {
-    "returncode": 1,
-    "ok": false,
-    "stdout": {
-      "ok": false,
-      "issues": [
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `总览地图`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `三层范围`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `重点区域`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `用地分区`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `交通慢行`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `蓝绿公共空间`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `建筑`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `更新项目`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `AI 场景`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `核心指标`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `任务覆盖`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `自检状态`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `来源`."
-        },
-        {
-          "check_id": "VISUAL_REQUIRED_SECTION_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Visualization must visibly include `假设`."
-        },
-        {
-          "check_id": "VISUAL_METRIC_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Missing data-metric `site_area_sqm`."
-        },
-        {
-          "check_id": "VISUAL_METRIC_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Missing data-metric `green_ratio`."
-        },
-        {
-          "check_id": "VISUAL_METRIC_MISSING",
-          "severity": "major",
-          "path": "visual/index.html",
-          "message": "Missing data-metric `public_space_ratio`."
-        }
-      ],
-      "metrics_seen": {}
+    {
+      "check_id": "VISUAL_PACKAGING",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "visual/index.html",
+      "message": "视觉封装与指标一致性检查：通过。"
     },
-    "stderr": ""
-  },
-  "professional_review": {
-    "returncode": 0,
-    "ok": true,
-    "stdout": {
-      "ok": true,
-      "issues": [],
-      "summary": {
-        "standard_matrix_items": 6,
-        "design_depth_items": 15,
-        "known_metric_refs_required": 14,
-        "proposal_format_version": "2",
-        "evidence_contract": "section-anchors-plus-structured-audit",
-        "proposal_reference_counts": {
-          "source": 14,
-          "standard": 0,
-          "depth": 0,
-          "data": 2,
-          "metric": 14
-        }
-      }
+    {
+      "check_id": "PROFESSIONAL_EVIDENCE",
+      "result": "pass",
+      "severity": "blocking",
+      "target": "proposal.md",
+      "message": "专业证据链审查：通过。"
     },
-    "stderr": ""
-  },
-  "spatial_issue_ids": [
-    "KEY_AREA_PROVISIONAL",
-    "KEY_AREA_PROVISIONAL",
-    "KEY_AREA_PROVISIONAL",
-    "METRIC_RECALC_MISMATCH"
+    {
+      "check_id": "BOUNDARY_TRUST",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/site_boundary.geojson",
+      "message": "Provisional boundary is present; replace with official redline before professional scoring."
+    },
+    {
+      "check_id": "KEY_AREAS_TRUST",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/key_areas.geojson",
+      "message": "Three required key areas are provisional; replace with official polygons before professional scoring."
+    },
+    {
+      "check_id": "LAND_USE_TOPOLOGY",
+      "result": "pass",
+      "severity": "major",
+      "target": "geometry/land_use.geojson",
+      "message": "Concept land-use topology passes current formal package checks."
+    },
+    {
+      "check_id": "VISUAL_STATIC",
+      "result": "pass",
+      "severity": "info",
+      "target": "visual/index.html",
+      "message": "Static offline HTML visualization is present."
+    }
   ],
-  "visual_issue_ids": [
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_REQUIRED_SECTION_MISSING",
-    "VISUAL_METRIC_MISSING",
-    "VISUAL_METRIC_MISSING",
-    "VISUAL_METRIC_MISSING"
-  ],
-  "professional_issue_ids": [],
-  "missing_review_dependencies": [],
-  "can_enter_formal_review": false,
-  "package_type": "professional_design_package",
-  "review_status": "revision-requested",
-  "next_actions": [
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/.binary-build-marker: each proposal directory may contain proposal.md, proposal.zh.md, proposal.en.md, changelog.md, maintainer-only FEEDBACK.md, risk.json, spatial.json, simulation.json, AI package files, assets/*, geometry/*, drawings/*, report/*, and localized visual/index HTML plus visual/assets/* only",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/manifest.json: agent: model_family must be one of: claude, deepseek, glm, gpt, grok, kimi, other, qwen",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/manifest.json: listed file `report/narrative.md` is missing",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/agent.json: model_family must be one of: claude, deepseek, glm, gpt, grok, kimi, other, qwen",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/standard_matrix.json: standards[5]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[4]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[5]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[6]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[7]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[8]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[11]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[12]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/design_depth_matrix.json: items[13]: self_check_ids must be a non-empty string array",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[0]: unknown layer `BUILDING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[1]: unknown layer `BUILDING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[2]: unknown layer `BUILDING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[3]: unknown layer `BUILDING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[4]: unknown layer `BUILDING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/buildings.geojson: feature[5]: unknown layer `BUILDING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[0]: unknown layer `CONSTRAINT`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[1]: unknown layer `CONSTRAINT`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[2]: unknown layer `CONSTRAINT`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/constraints.geojson: feature[3]: unknown layer `CONSTRAINT`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/phasing.geojson: feature[0]: unknown layer `PHASING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/phasing.geojson: feature[1]: unknown layer `PHASING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/phasing.geojson: feature[2]: unknown layer `PHASING`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[0]: unknown layer `ROAD`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[1]: unknown layer `ROAD`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[2]: unknown layer `ROAD`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/geometry/roads.geojson: feature[3]: unknown layer `ROAD`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/proposal.md: section `更新项目清单、实施政策与分期计划` must include at least one machine-readable evidence reference such as [source:...], [standard:...], [depth:...], [data:...], or [metric:...]",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/proposal.md: section `指标体系、面积复算与合规矩阵` must include at least one machine-readable evidence reference such as [source:...], [standard:...], [depth:...], [data:...], or [metric:...]",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/proposal.md: section `风险、版权与合规说明` must include at least one machine-readable evidence reference such as [source:...], [standard:...], [depth:...], [data:...], or [metric:...]",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/changelog.md: missing title `# 方案迭代记录`",
-    "Fix deterministic validation error: submissions/andyxu12341/jingzhang-city-timetable/changelog.md: add at least one version heading like `## v0.1 - 2026-06-14`",
-    "Repair spatial issue METRIC_RECALC_MISMATCH: green_ratio does not match spatial recomputation.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `总览地图`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `三层范围`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `重点区域`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `用地分区`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `交通慢行`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `蓝绿公共空间`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `建筑`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `更新项目`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `AI 场景`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `核心指标`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `任务覆盖`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `自检状态`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `来源`.",
-    "Repair visual issue VISUAL_REQUIRED_SECTION_MISSING: Visualization must visibly include `假设`.",
-    "Repair visual issue VISUAL_METRIC_MISSING: Missing data-metric `site_area_sqm`.",
-    "Repair visual issue VISUAL_METRIC_MISSING: Missing data-metric `green_ratio`.",
-    "Repair visual issue VISUAL_METRIC_MISSING: Missing data-metric `public_space_ratio`."
-  ]
+  "ok": true,
+  "can_enter_formal_review": true,
+  "review_status": "formal-review-ready",
+  "package_type": "professional_design_package"
 }

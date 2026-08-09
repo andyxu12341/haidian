@@ -42,7 +42,9 @@ The same T0–T3 contract links all three scales: regional research studies acti
 
 Conventional spatial planning asks what belongs where. The City Timetable adds: **what happens when, and who yields when uses conflict?** The overall structure therefore includes one approximately 9.22 km concept **time spine** and three key-area time interfaces [data:geometry/roads.geojson#ROAD-001] [metric:time_spine_length_m].
 
-Six international precedents are used only for transferable mechanisms, not for importing foreign law into Beijing: NYC Open Streets for time-defined street modes and exceptions; LADOT Code the Curb for machine-readable public right-of-way; Open Mobility Foundation CDS for interoperable regulation/event data; Singapore LTA/CETRAN for controlled AV testing; TfL School Streets for predictable public-rights periods; and Paris Rues aux écoles for youth-friendly public-space transformation [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS] [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES].
+The first three international precedents test the machine-readability of public rules: NYC Open Streets for time-defined street modes and exceptions, LADOT Code the Curb for machine-readable public right-of-way, and Open Mobility Foundation CDS for interoperable regulation/event data [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS].
+
+Three additional precedents test controlled experimentation and predictable public-rights periods: Singapore LTA/CETRAN for controlled AV testing, TfL School Streets for school-time access protection, and Paris Rues aux écoles for youth-friendly public-space transformation [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES].
 
 The shared lesson is that **an AI-native city is not defined by more sensors, but by rules that people can understand, machines can read, responsible humans can review, and systems can safely fall back from.**
 
