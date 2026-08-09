@@ -23,7 +23,7 @@
       "geometry_refs": ["geometry/public_space.geojson","geometry/constraints.geojson","geometry/phasing.geojson"],
       "metric_refs": ["scenario_count","test_validation_scenario_count","human_override_coverage","non_ai_fallback_coverage"],
       "source_ids": ["AGENT-TASKBOOK","CASE-SG-LTA-AV","CASE-NYC-OPEN-STREETS-2026"],
-      "assumption_ids": ["A-ROBOTICS-001","A-METRIC-001"],
+      "assumption_ids": ["A-ROBOTICS-001","A-METRICS-001"],
       "self_check_ids": ["VISUAL_STATIC"],
       "evidence_summary_zh": "TimeSlot Contract 与12张场景卡把AI调度、人类责任、退出机制和非AI路径结构化。"
     },
