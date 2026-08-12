@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE CITY TIMETABLE: An Auditable, Switchable AI Time-Space System for the Jing-Zhang Belt - proposal report</title>
+<style>
+:root {
+  --ink: #172033;
+  --muted: #667085;
+  --line: #d7dee8;
+  --paper: #ffffff;
+  --bg: #f4f7fa;
+  --accent: #245b8f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.75;
+}
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 42px 24px 72px;
+  background: var(--paper);
+  min-height: 100vh;
+  box-shadow: 0 0 0 1px rgba(23, 32, 51, 0.05);
+}
+.hero {
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+}
+h1 { font-size: 34px; line-height: 1.22; margin: 0 0 10px; }
+h2 { font-size: 25px; margin: 34px 0 12px; border-top: 1px solid var(--line); padding-top: 24px; }
+h3 { font-size: 20px; margin: 26px 0 10px; }
+p, li { font-size: 16px; }
+blockquote {
+  margin: 18px 0;
+  padding: 12px 18px;
+  border-left: 4px solid var(--line);
+  color: var(--muted);
+  background: #f8fafc;
+}
+code {
+  background: #eef2f7;
+  color: #1d4f7a;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+.summary { color: var(--muted); font-size: 17px; }
+.translation-link a { color: var(--accent); font-weight: 700; }
+.proposal-table { margin: 20px 0 26px; overflow-x: auto; }
+.proposal-table table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 520px;
+  font-size: 15px;
+}
+.proposal-table th, .proposal-table td {
+  border: 1px solid var(--line);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.proposal-table th { background: #eef2f7; color: var(--ink); font-weight: 700; }
+.proposal-table tbody tr:nth-child(even) { background: #fafcfe; }
+.proposal-table .align-center { text-align: center; }
+.proposal-table .align-right { text-align: right; }
+.proposal-figure {
+  margin: 22px 0 28px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+.proposal-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.proposal-figure figcaption {
+  padding: 10px 14px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+.evidence {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  margin: 0 0.12em;
+  border-bottom: 1px solid #8aa8c3;
+  color: #315f87;
+  font-size: 0.68em;
+  font-weight: 650;
+  line-height: 1.35;
+  vertical-align: super;
+}
+@media (max-width: 720px) {
+  main { padding: 26px 16px 52px; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 21px; }
+}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<h1>THE CITY TIMETABLE: An Auditable, Switchable AI Time-Space System for the Jing-Zhang Belt</h1>
+<p class="summary">Using the railway operating diagram as both cultural reference and operating mechanism, the proposal organizes the Jing-Zhang AI Innovation Belt as a public, auditable and human-overridable urban timetable. Robot delivery, low-speed autonomous shuttles, youth night activities, commuting, accessibility and emergency access share space through explicit time windows, while T0 constant rights override all algorithmic scheduling. Precise placement will be recalculated after official geometry is released.</p>
+<p class="translation-link"><a href="proposal.html">阅读中文版本</a></p>
+</section>
+<h1>THE CITY TIMETABLE · 京张运行图</h1>
+<p>A century ago, the Jing-Zhang Railway had to answer more than where tracks should go. It also had to decide when trains departed, where they met or yielded, which movement had priority, and how service recovered after disruption. An AI city faces a comparable coordination problem today, except that the actors now include people, robots, low-speed autonomous shuttles, public events and urban services.</p>
+<p><strong>The City Timetable treats time as a design dimension equal to space.</strong> A public place should communicate not only what it is, but what may happen there at a given time, who has priority, how conflicts are rejected or rescheduled, and who remains accountable for the final decision. AI may forecast conflict and recommend schedules, but it cannot override constant public rights or replace a named human owner.</p>
+<p>This work is an open-call formal submission. It does not constitute government approval, statutory planning, engineering feasibility or autonomous-vehicle operating permission.</p>
+<h2>Design Basis and Source List</h2>
+<p>The official open-call announcement controls the project name, three scope levels, three key areas, required tasks and deliverable context <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="OFFICIAL-ANNOUNCEMENT" title="来源：OFFICIAL-ANNOUNCEMENT">来源</sup>. The Agent-facing taskbook controls the co-creation principles, Agent 1–6 tasks, scenarios, personas, landmarks and long-term operation requirements <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="AGENT-TASKBOOK" title="来源：AGENT-TASKBOOK">来源</sup>. Urban design, regulatory-plan boundary awareness and land-use classification follow the official local reference snapshots registered in the repository <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MOHURD-URBAN-DESIGN-MEASURES" title="标准：MOHURD-URBAN-DESIGN-MEASURES">标准</sup> <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MOHURD-CONTROL-DETAILED-PLANNING" title="标准：MOHURD-CONTROL-DETAILED-PLANNING">标准</sup> <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MNR-LAND-USE-CLASSIFICATION-GUIDE" title="标准：MNR-LAND-USE-CLASSIFICATION-GUIDE">标准</sup>.</p>
+<p>Trusted official SITE_BOUNDARY and precise key-area polygons are still absent, as are approved FAR, height, density, setbacks, road redlines, ownership, utilities and heritage controls. Submitted site and key-area geometries therefore remain <code>provisional_constraint</code> with <code>official_boundary=false</code>, usable only for generation, visualization and temporary self-check <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="BOUNDARY-SOURCE" title="来源：BOUNDARY-SOURCE">来源</sup> [assumption:A-BOUNDARY-001].</p>
+<figure class="proposal-figure"><img src="../assets/figures/site-overview.en.png" alt="Three-level scope and City Timetable overview"><figcaption>Three-level scope and City Timetable overview</figcaption></figure>
+<h2>Three-Level Scope Framework</h2>
+<p>The official task defines approximately 43.6 km² for coordinated research, 11.4 km² for overall design and 368.4 ha for the three key detailed-design areas <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="OFFICIAL-ANNOUNCEMENT" title="来源：OFFICIAL-ANNOUNCEMENT">来源</sup>.</p>
+<ul>
+<li><strong>43.6 km²: coordinated innovation operating domain.</strong> Study the timing relationships among universities, enterprise testing, public services, logistics and international events rather than producing another generalized large-scale master plan.</li>
+<li><strong>11.4 km²: core City Timetable system.</strong> Establish three transferable spatial types: constant-rights space, time-shared space and controlled testing space.</li>
+<li><strong>368.4 ha: three time-governance experiments.</strong> Zhongzhiyuan tests safety and controlled experimentation; the AI Origin Community tests 24-hour co-creation balanced with everyday resident rights; Dazhongsi tests time-sharing among transit footfall, consumption, night activity and logistics <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="key_area_count" title="指标：key_area_count">指标</sup>.</li>
+</ul>
+<p>The same T0–T3 contract links all three scales: regional research studies activity rhythms, the overall design organizes shared public space, and the key areas turn the rules into inspectable scenarios.</p>
+<h2>Coordinated Research Area: Industry and Future City Research</h2>
+<p>Conventional spatial planning asks what belongs where. The City Timetable adds: <strong>what happens when, and who yields when uses conflict?</strong> The overall structure therefore includes one approximately 9.22 km concept <strong>time spine</strong> and three key-area time interfaces <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/roads.geojson#ROAD-001" title="空间数据：geometry/roads.geojson#ROAD-001">空间数据</sup> <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="time_spine_length_m" title="指标：time_spine_length_m">指标</sup>.</p>
+<p>The first three international precedents test the machine-readability of public rules: NYC Open Streets for time-defined street modes and exceptions, LADOT Code the Curb for machine-readable public right-of-way, and Open Mobility Foundation CDS for interoperable regulation/event data <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="CASE-NYC-OPEN-STREETS-2026" title="来源：CASE-NYC-OPEN-STREETS-2026">来源</sup> <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="CASE-LADOT-CODE-THE-CURB" title="来源：CASE-LADOT-CODE-THE-CURB">来源</sup> <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="CASE-OMF-CDS" title="来源：CASE-OMF-CDS">来源</sup>.</p>
+<p>Three additional precedents test controlled experimentation and predictable public-rights periods: Singapore LTA/CETRAN for controlled AV testing, TfL School Streets for school-time access protection, and Paris Rues aux écoles for youth-friendly public-space transformation <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="CASE-SG-LTA-AV" title="来源：CASE-SG-LTA-AV">来源</sup> <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="CASE-TFL-SCHOOL-STREETS" title="来源：CASE-TFL-SCHOOL-STREETS">来源</sup> <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="CASE-PARIS-RUES-ECOLES" title="来源：CASE-PARIS-RUES-ECOLES">来源</sup>.</p>
+<p>The shared lesson is that <strong>an AI-native city is not defined by more sensors, but by rules that people can understand, machines can read, responsible humans can review, and systems can safely fall back from.</strong></p>
+<h2>Overall Design Area: Urban Renewal and Regulatory-Plan-Level Urban Design</h2>
+<p>The proposal replaces the assumption that every space has one permanent operating mode with four time-space layers <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="visual/assets/timeslot_contract.json" title="空间数据：visual/assets/timeslot_contract.json">空间数据</sup>:</p>
+<ul>
+<li><strong>T0 Constant Rights:</strong> continuous accessibility, emergency access, essential walking and essential non-digital service. T0 is not reservable and cannot be overridden by AI.</li>
+<li><strong>T1 Routine Rhythm:</strong> commuting peaks, school periods, everyday commerce, park movement and ordinary resident access.</li>
+<li><strong>T2 Flexible Reservation:</strong> robot delivery, low-speed shuttle tests, community classes, temporary exhibition and youth activity.</li>
+<li><strong>T3 Human-confirmed Event:</strong> AI conferences, special test weeks, Demo Night, large roadshows and high-crowd events. A named accountable human role is mandatory.</li>
+</ul>
+<p>The TimeSlot Contract requires space unit, time window, allowed actors, priority, accessibility protection, human owner, stop triggers, rollback, logging, non-AI fallback and validation method. P0 life-safety/constant rights always outrank routine, reserved and event uses. The protocol includes both PASS and FAIL cases: an off-peak robot delivery that preserves T0 may proceed to human/operator review, while blocking the only accessible or emergency route must be rejected <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="validator_negative_case_count" title="指标：validator_negative_case_count">指标</sup>.</p>
+<figure class="proposal-figure"><img src="../assets/figures/land-use-structure.en.png" alt="Land use and urban timetable structure"><figcaption>Land use and urban timetable structure</figcaption></figure>
+<h2>Detailed Design of Key Areas</h2>
+<p>The three key areas do not receive identical “AI facilities”; each performs a different verifiable time-governance task <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/key_areas.geojson#PROV-KEY-001" title="空间数据：geometry/key_areas.geojson#PROV-KEY-001">空间数据</sup> <sup class="evidence evidence-depth" data-evidence-kind="depth" data-evidence-value="three_key_area_detailed_design" title="深度：three_key_area_detailed_design">深度</sup>.</p>
+<h3>Zhongzhiyuan: AI Timetable Testing Ground</h3>
+<p>Controlled testing, human takeover, public observation and operating-log interfaces support four industrial test-validation scenarios: robot delivery time-window stress testing, low-speed shuttle conflict/degradation testing, crowd-peak automatic exit, and human override/log replay <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="test_validation_scenario_count" title="指标：test_validation_scenario_count">指标</sup>. Testing is never described as permission to operate. Accessibility conflict, unexpected crowding, communications/sensor degradation or a manual stop request triggers downgrade or termination [assumption:A-ROBOTICS-001].</p>
+<h3>Beijing AI Origin Community: 24-hour Co-creation Timetable Community</h3>
+<p>Daytime supports learning, collaboration and public service; approved evening windows support Demo Night, light sports and study-space switching. Resident quiet, ordinary access, accessibility and non-digital essential service remain hard constraints. Basic public service does not require a mandatory app, facial recognition or persistent individual tracking; AI navigation and cultural guidance retain physical wayfinding, printed information or staffed equivalents <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="non_ai_fallback_coverage" title="指标：non_ai_fallback_coverage">指标</sup>.</p>
+<h3>Dazhongsi: AI-native Everyday-life Timetable District</h3>
+<p>Human flow receives priority during commercial/transit peaks; controlled replenishment and logistics move to lower-demand periods; youth culture and consumption occupy approved night windows; high-crowd states trigger machine exit. Because the absolute position of provisional <code>PROV-KEY-003</code> still requires review against official data, this stage does not turn the rough rectangle into a precise station-quadrant or building-engineering proposal [assumption:A-DAZHONGSI-001].</p>
+<p>The three pilgrimage nodes are <strong>TIMETABLE HALL, TIME EXCHANGE and CENTENNIAL DEPARTURE</strong> <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/public_space.geojson#PUBLIC-001" title="空间数据：geometry/public_space.geojson#PUBLIC-001">空间数据</sup>.</p>
+<figure class="proposal-figure"><img src="../assets/figures/key-areas.en.png" alt="Three key areas and pilgrimage nodes"><figcaption>Three key areas and pilgrimage nodes</figcaption></figure>
+<h2>AI Innovation Ecosystem, Personas, and AI+ Scenarios</h2>
+<p>The machine-readable scenario file contains six personas and twelve complete scenarios <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="visual/assets/scenarios.json" title="空间数据：visual/assets/scenarios.json">空间数据</sup> <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="scenario_count" title="指标：scenario_count">指标</sup>: robot-delivery stress test; low-speed shuttle degradation; crowd-peak machine exit; human override/log replay; reversible Youth Demo Night; no-app public-service navigation; AI cultural guide with non-digital equivalent route; night learning/light-sport switching; scenario booking/admission; shared enterprise demo slots; multi-party event-day scheduling; and public City Timetable display.</p>
+<p>Personas cover AI startup teams/developers, university students/young researchers, nearby residents, accessibility/older users, merchants/night workers, and logistics/maintenance/emergency roles.</p>
+<p>All twelve scenarios define human review and non-AI fallback. <code>human_override_coverage</code> and <code>non_ai_fallback_coverage</code> are therefore 100% <strong>at the design-contract field level</strong>; they are not claims about future measured operating performance <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="human_override_coverage" title="指标：human_override_coverage">指标</sup> <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="non_ai_fallback_coverage" title="指标：non_ai_fallback_coverage">指标</sup> [assumption:A-METRICS-001].</p>
+<h2>Land Use, Building Scale, and Retain-Renovate-Demolish Strategy</h2>
+<p><code>geometry/land_use.geojson</code> uses verifiable <code>land_use_code</code> values to express a conceptual functional structure and explicitly states that it is not regulatory approval <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/land_use.geojson#LU-001" title="空间数据：geometry/land_use.geojson#LU-001">空间数据</sup> <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MNR-LAND-USE-CLASSIFICATION-GUIDE" title="标准：MNR-LAND-USE-CLASSIFICATION-GUIDE">标准</sup>. FAR, approved height, building density and setbacks remain unknown <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="floor_area_ratio" title="指标：floor_area_ratio">指标</sup>.</p>
+<p>The building layer contains six <code>candidate_retrofit</code> illustrative units that express a preference for adaptive reuse, reversible ground floors and public interfaces. They do not correspond to surveyed existing buildings. Their concept footprint totals approximately 88,628.915 m² <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="building_footprint_area_sqm" title="指标：building_footprint_area_sqm">指标</sup>. No demolition quantity, new-build quantity or confirmed construction scale is inferred [assumption:A-CONTROLS-001].</p>
+<h2>Transport, Rail, Municipal Infrastructure, and Public Services</h2>
+<p>The road layer uses the valid <code>ROAD_CENTERLINE</code> enum for the concept time spine and three time interfaces; these are not existing-road centerlines or engineering alignments <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/roads.geojson#ROAD-001" title="空间数据：geometry/roads.geojson#ROAD-001">空间数据</sup>. T0 constraints use the <code>REGULATORY_CONTROL</code> enum as a machine-readable layer while each feature remains <code>geometry_role=design_proposal</code> and <code>official_boundary=false</code>; they are not statutory road or fire-control redlines <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/constraints.geojson#CONST-001" title="空间数据：geometry/constraints.geojson#CONST-001">空间数据</sup>.</p>
+<p>The T0 concept network totals approximately 12.33 km and represents the rule that accessibility, emergency access and essential walking remain continuous across every schedule mode <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="t0_constant_rights_corridor_length_m" title="指标：t0_constant_rights_corridor_length_m">指标</sup>.</p>
+<p>Municipal/new-infrastructure strategy treats <strong>public operating state, machine-readable rules, human takeover, exception logs and non-digital backup</strong> as digital infrastructure. Energy, edge compute, sensors, communications, utilities and fire-safety capacities remain subject to future professional data and engineering review [assumption:A-CONTROLS-001].</p>
+<figure class="proposal-figure"><img src="../assets/figures/mobility-bluegreen.en.png" alt="Mobility, T0 rights and blue-green public space"><figcaption>Mobility, T0 rights and blue-green public space</figcaption></figure>
+<h2>Blue-Green Network, Public Space, and Urban Character</h2>
+<p>The visual identity does not treat “futuristic blue light” as the sole language of AI. The time axis, station, meet/yield line and delay-recovery logic of railway operating diagrams are translated into signage, paving, public information and event systems <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MOHURD-URBAN-DESIGN-MEASURES" title="标准：MOHURD-URBAN-DESIGN-MEASURES">标准</sup>.</p>
+<p>The concept green layer contains one heritage-park timetable green corridor and flexible open-green areas in the three key zones. Relative to the provisional site and recalculated in EPSG:4548, the current <code>green_ratio=31.5058%</code>. This is a concept-layer ratio, not an approved green-ratio control and not an official heritage-park boundary <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="green_ratio" title="指标：green_ratio">指标</sup>.</p>
+<p>Six reversible public spaces include the three pilgrimage nodes plus test, youth and AI-everyday-life spaces. Their concept area is approximately 1.4959% of the provisional overall design area <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="public_space_ratio" title="指标：public_space_ratio">指标</sup> <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="reversible_public_space_count" title="指标：reversible_public_space_count">指标</sup>. The objective is not the percentage itself, but demonstrating multiple time modes without sacrificing T0 rights.</p>
+<p>The cultural narrative follows <strong>Centennial Departure — Open Meeting/Yielding — Intelligent Operation — Recoverable City</strong>: railway history explains how shared time coordinated complex movement; Zhongguancun culture contributes open innovation and technology transfer; AI culture contributes transparent rules, accountability and human-machine collaboration.</p>
+<h2>Renewal Projects, Implementation Policy, and Phasing</h2>
+<p>Implementation sequencing is cross-checked against the phasing layer and scenario inventory <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/phasing.geojson#PHASE-001" title="空间数据：geometry/phasing.geojson#PHASE-001">空间数据</sup> <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="scenario_count" title="指标：scenario_count">指标</sup>.</p>
+<ul>
+<li><strong>Near term:</strong> TimeSlot Contract, public timetable interface, T0 accessibility/emergency checks, no-app navigation, reversible Demo Night and controlled robot testing that does not enter ordinary public roads.</li>
+<li><strong>Mid term:</strong> after official polygons and professional conditions are added, coordinate event, logistics, public-service, walking and testing windows across the three key areas.</li>
+<li><strong>Long term:</strong> only after transport, safety, planning, utilities, heritage, ownership and operating-approval pathways are clear should higher-level embodied-AI public operation or substantial spatial reconstruction be considered [assumption:A-ROBOTICS-001].</li>
+</ul>
+<p>The annual operating system includes Open Timetable Week, Urban Agent Scheduling Challenge, Robotics Low-speed Test Week, Jing-Zhang Demo Night and Annual City Timetable Review. These are recurring governance/testing cycles rather than stand-alone promotional events.</p>
+<h2>Metrics, Area Recalculation, and Compliance Matrix</h2>
+<p>Structured metrics and spatial recomputation remain authoritative for quantitative claims <sup class="evidence evidence-metric" data-evidence-kind="metric" data-evidence-value="site_area_sqm" title="指标：site_area_sqm">指标</sup> <sup class="evidence evidence-data" data-evidence-kind="data" data-evidence-value="geometry/green_space.geojson#GREEN-001" title="空间数据：geometry/green_space.geojson#GREEN-001">空间数据</sup>.</p>
+<div class="proposal-table"><table><thead><tr><th>Metric</th><th class="align-right">Current value</th><th>Limitation</th></tr></thead><tbody><tr><td><code>site_area_sqm</code></td><td class="align-right">11,412,825.386 m²</td><td>provisional boundary, not official redline</td></tr><tr><td><code>key_area_count</code></td><td class="align-right">3</td><td>count follows the task; geometries remain provisional</td></tr><tr><td><code>building_footprint_area_sqm</code></td><td class="align-right">88,628.915 m²</td><td>six concept retrofit units</td></tr><tr><td><code>green_ratio</code></td><td class="align-right">31.5058%</td><td>concept green layer; not approved green ratio</td></tr><tr><td><code>public_space_ratio</code></td><td class="align-right">1.4959%</td><td>six timetable public spaces only</td></tr><tr><td><code>time_spine_length_m</code></td><td class="align-right">9,216.69 m</td><td>concept time spine; not engineering alignment</td></tr><tr><td><code>t0_constant_rights_corridor_length_m</code></td><td class="align-right">12,327.509 m</td><td>design-protocol rights lines; not statutory redlines</td></tr><tr><td><code>scenario_count</code></td><td class="align-right">12</td><td>machine-readable scenario cards</td></tr><tr><td><code>test_validation_scenario_count</code></td><td class="align-right">4</td><td>industrial test-validation scenarios</td></tr><tr><td><code>human_override_coverage</code></td><td class="align-right">100%</td><td>design-field coverage</td></tr><tr><td><code>non_ai_fallback_coverage</code></td><td class="align-right">100%</td><td>design-field coverage</td></tr><tr><td><code>floor_area_ratio</code></td><td class="align-right">unknown</td><td>awaiting official controls and official polygon</td></tr></tbody></table></div>
+<p>Traceability among official requirements, Agent 1–6, professional standards, design depth, layers, metrics and risk assumptions is maintained in <code>compliance_matrix.json</code>, <code>standard_matrix.json</code> and <code>design_depth_matrix.json</code> <sup class="evidence evidence-depth" data-evidence-kind="depth" data-evidence-value="metrics_recalculation" title="深度：metrics_recalculation">深度</sup>.</p>
+<figure class="proposal-figure"><img src="../assets/figures/metrics-evidence.en.png" alt="Metrics, evidence and TimeSlot Contract"><figcaption>Metrics, evidence and TimeSlot Contract</figcaption></figure>
+<h2>Risk, Copyright, and Compliance</h2>
+<p>Risk and pending-data statements are controlled by assumptions, source registration and professional standards <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="SOURCE-REGISTRY" title="来源：SOURCE-REGISTRY">来源</sup> <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MOHURD-CONTROL-DETAILED-PLANNING" title="标准：MOHURD-CONTROL-DETAILED-PLANNING">标准</sup>.</p>
+<p>1. <strong>Boundary:</strong> official polygons are missing; all provisional-derived results require full-system recalculation when trusted polygons arrive [assumption:A-BOUNDARY-001]. 2. <strong>Regulatory/engineering:</strong> FAR, height, density, setbacks, roads, utilities, heritage and ownership are not inferred [assumption:A-CONTROLS-001]. 3. <strong>Embodied AI:</strong> testing is not permission; public deployment requires separate safety, transport, regulatory and operating conditions [assumption:A-ROBOTICS-001]. 4. <strong>Dazhongsi:</strong> precise station quadrants and building placement are deferred until provisional geometry is resolved [assumption:A-DAZHONGSI-001]. 5. <strong>Metrics:</strong> design-contract coverage remains distinct from measured incidents, conflict-rejection rates and public satisfaction [assumption:A-METRICS-001]. 6. <strong>Privacy/equity:</strong> basic public service does not require facial recognition, persistent individual tracking, mandatory apps or a single vendor. 7. <strong>Copyright:</strong> core figures and drawings are programmatically generated from this proposal&#x27;s structured data; no peer submissions, corporate logos or uncleared images are copied. See <code>report/copyright_statement.md</code>. 8. <strong>Status:</strong> this work is described only as an open-call formal submission until repository merge, professional review or later implementation establishes another status.</p>
+<h2>References</h2>
+<ul>
+<li>Official Centennial Jing-Zhang AI Innovation Belt open-call announcement <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="OFFICIAL-ANNOUNCEMENT" title="来源：OFFICIAL-ANNOUNCEMENT">来源</sup></li>
+<li>Agent-facing open-call taskbook <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="AGENT-TASKBOOK" title="来源：AGENT-TASKBOOK">来源</sup></li>
+<li>Repository public source registry <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="SOURCE-REGISTRY" title="来源：SOURCE-REGISTRY">来源</sup></li>
+<li>Local official references for urban design, regulatory planning and land-use classification <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MOHURD-URBAN-DESIGN-MEASURES" title="标准：MOHURD-URBAN-DESIGN-MEASURES">标准</sup> <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MOHURD-CONTROL-DETAILED-PLANNING" title="标准：MOHURD-CONTROL-DETAILED-PLANNING">标准</sup> <sup class="evidence evidence-standard" data-evidence-kind="standard" data-evidence-value="MNR-LAND-USE-CLASSIFICATION-GUIDE" title="标准：MNR-LAND-USE-CLASSIFICATION-GUIDE">标准</sup></li>
+<li>NYC DOT Open Streets / LADOT Code the Curb / OMF CDS / Singapore LTA AV / TfL School Streets / Paris Rues aux écoles are used only as mechanism precedents and are registered in <code>sources.json</code> <sup class="evidence evidence-source" data-evidence-kind="source" data-evidence-value="CASE-OMF-CDS" title="来源：CASE-OMF-CDS">来源</sup></li>
+</ul>
+</main>
+</body>
+</html>
