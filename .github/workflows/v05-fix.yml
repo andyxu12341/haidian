@@ -24,6 +24,19 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 patcher/tools/v05_finalize.py work
+      - name: Align English figure and pilot references
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('work/submissions/andyxu12341/jingzhang-city-timetable/proposal.en.md')
+          t = p.read_text(encoding='utf-8')
+          t = t.replace('assets/figures/time-rights-hero.svg', 'assets/figures/time-rights-hero.en.svg')
+          t = t.replace('assets/figures/temporal-network-method.svg', 'assets/figures/temporal-network-method.en.svg')
+          t = t.replace('assets/figures/street-section-24h.svg', 'assets/figures/street-section-24h.en.svg')
+          t = t.replace('research/ai-origin-time-rights-pilot.json', 'visual/assets/ai-origin-time-rights-pilot.json')
+          p.write_text(t, encoding='utf-8')
+          PY
       - run: python3 -m pip install -r work/requirements-review.txt -r work/requirements-validation.txt
       - working-directory: work
         run: |
@@ -38,5 +51,5 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add "$S"
-          git diff --cached --quiet || git commit -m 'submission: finalize v0.5 site-grounded Time Rights pilot'
+          git diff --cached --quiet || git commit -m 'submission: finalize v0.5 bilingual Time Rights package'
           git push origin HEAD:main
