@@ -1,0 +1,44 @@
+name: v05-fix
+on:
+  push:
+    branches: [tmp-v05-fix]
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-v05-fix
+          path: patcher
+          fetch-depth: 1
+          sparse-checkout: tools/v05_finalize.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: work
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 patcher/tools/v05_finalize.py work
+      - run: python3 -m pip install -r work/requirements-review.txt -r work/requirements-validation.txt
+      - working-directory: work
+        run: |
+          S=submissions/andyxu12341/jingzhang-city-timetable
+          python3 scripts/render_proposal_html.py "$S"
+          python3 scripts/refresh_submission_manifest.py "$S"
+          python3 scripts/finalize_submission.py "$S"
+          python3 scripts/self_check_submission.py "$S" --pr-author andyxu12341 --repo-root . --mark-self-checked --json
+          python3 scripts/refresh_submission_manifest.py "$S"
+          python3 scripts/validate_local_submission.py "$S" --pr-author andyxu12341 --strict-manifest
+      - working-directory: work
+        run: |
+          S=submissions/andyxu12341/jingzhang-city-timetable
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add "$S"
+          git diff --cached --quiet || git commit -m 'submission: finalize v0.5 site-grounded Time Rights pilot'
+          git push origin HEAD:main
