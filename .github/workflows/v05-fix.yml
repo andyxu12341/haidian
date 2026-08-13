@@ -31,7 +31,6 @@ jobs:
           python3 scripts/render_proposal_html.py "$S"
           python3 scripts/refresh_submission_manifest.py "$S"
           python3 scripts/self_check_submission.py "$S" --pr-author andyxu12341 --repo-root . --mark-self-checked --json
-          python3 scripts/refresh_submission_manifest.py "$S"
           python3 scripts/validate_local_submission.py "$S" --pr-author andyxu12341 --strict-manifest
       - working-directory: work
         run: |
