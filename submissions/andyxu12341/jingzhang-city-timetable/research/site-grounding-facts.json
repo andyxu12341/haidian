@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "purpose": "Site-grounded facts allowed to anchor the Time Rights research model without upgrading them to statutory redlines or surveyed geometry.",
+  "facts": [
+    {
+      "id": "JZ-PARK-PHASE1-OFFICIAL",
+      "source_class": "A_official_public",
+      "title": "京张铁路遗址公园（一期）全面建成开放",
+      "publisher": "北京市园林绿化局（首都绿化委员会办公室）",
+      "published_date": "2023-06-26",
+      "source_url": "https://yllhj.beijing.gov.cn/zwgk/zwxx/202306/t20230626_3145467.shtml",
+      "claims": {
+        "status": "opened",
+        "extent_text": "清华东路至知春路",
+        "length_km": 2.5,
+        "area_ha": 16.8,
+        "functions": ["railway heritage interpretation", "green public space", "urban renewal", "public activity"]
+      },
+      "allowed_use": [
+        "anchor the central built/open heritage-park segment",
+        "define a real-world research segment for temporal accessibility and public-space scheduling",
+        "cross-check provisional competition geometry"
+      ],
+      "not_allowed_use": [
+        "official competition boundary",
+        "cadastral or statutory polygon",
+        "road redline or engineering alignment"
+      ]
+    },
+    {
+      "id": "JZ-PARK-OSM-WAY-122348403",
+      "source_class": "B_osm_public_mapping",
+      "title": "京张铁路遗址公园 OpenStreetMap feature",
+      "osm_type": "way",
+      "osm_id": 122348403,
+      "tag_hint": "leisure=park",
+      "use": "independent public-map cross-check and network/POI discovery; ODbL attribution required",
+      "formal_claim": false
+    }
+  ],
+  "research_decision": {
+    "phase1_segment_role": "first site-grounded pilot segment for v0.4 temporal network",
+    "next_inputs": [
+      "independently reconstructed OSM walk network",
+      "verified station entrances and crossings",
+      "POI/opening-hours layer",
+      "published transit operating windows",
+      "explicitly separated synthetic demand scenarios"
+    ]
+  }
+}
