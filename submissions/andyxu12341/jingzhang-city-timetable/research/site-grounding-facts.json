@@ -1,6 +1,6 @@
 {
-  "schema_version": "0.1.0",
-  "purpose": "Site-grounded facts allowed to anchor the Time Rights research model without upgrading them to statutory redlines or surveyed geometry.",
+  "schema_version": "0.2.0",
+  "purpose": "Site-grounded official facts and public-map anchors used to choose and bound Time Rights pilots without upgrading them to statutory redlines, surveyed geometry or observed performance.",
   "facts": [
     {
       "id": "JZ-PARK-PHASE1-OFFICIAL",
@@ -9,23 +9,49 @@
       "publisher": "北京市园林绿化局（首都绿化委员会办公室）",
       "published_date": "2023-06-26",
       "source_url": "https://yllhj.beijing.gov.cn/zwgk/zwxx/202306/t20230626_3145467.shtml",
-      "claims": {
-        "status": "opened",
-        "extent_text": "清华东路至知春路",
-        "length_km": 2.5,
-        "area_ha": 16.8,
-        "functions": ["railway heritage interpretation", "green public space", "urban renewal", "public activity"]
-      },
-      "allowed_use": [
-        "anchor the central built/open heritage-park segment",
-        "define a real-world research segment for temporal accessibility and public-space scheduling",
-        "cross-check provisional competition geometry"
-      ],
-      "not_allowed_use": [
-        "official competition boundary",
-        "cadastral or statutory polygon",
-        "road redline or engineering alignment"
-      ]
+      "claims": {"status":"opened","extent_text":"清华东路至知春路","length_km":2.5,"area_ha":16.8,"heritage":["清华园站站房","旧铁轨","道岔"]},
+      "allowed_use": ["select a real built/open pilot segment","anchor field-observation protocol","cross-check provisional competition geometry"],
+      "not_allowed_use": ["official competition boundary","cadastral/statutory polygon","observed demand or performance"]
+    },
+    {
+      "id": "JZ-PARK-PHASE2-2026",
+      "source_class": "A_official_public",
+      "title": "京张铁路遗址公共空间改造提升工程（二期）配套项目完工",
+      "publisher": "北京市园林绿化局（首都绿化委员会办公室）",
+      "published_date": "2026-07-13",
+      "source_url": "https://yllhj.beijing.gov.cn/zwgk/zwxx/202607/t20260714_4761226.shtml",
+      "claims": {"status":"supporting_works_completed","north_segment":"清华东路至北五环","north_area_ha":30.01,"network":"fishbone slow-mobility network with cycling/running/walking routes"},
+      "not_allowed_use": ["competition redline","observed pedestrian-volume baseline"]
+    },
+    {
+      "id": "AI-ORIGIN-2026-BJFGW",
+      "source_class": "A_official_public",
+      "title": "从蓝图到实景，北京AI原点社区向未来启新程",
+      "publisher": "北京市发展和改革委员会",
+      "published_date": "2026-04-10",
+      "source_url": "https://fgw.beijing.gov.cn/gzdt/fzbjgzh/202604/t20260413_4581001.htm",
+      "claims": {"area_km2_approx":3.0,"universities_research_institutions":"30+","ai_enterprises":"230+","ai_related_students":"100000+","planning_frame":"ten-minute innovation circle"},
+      "not_allowed_use": ["parcel controls","activity authorization","observed public-space demand"]
+    },
+    {
+      "id": "JZ-CONTROL-PLAN-PUBLIC-2025",
+      "source_class": "A_official_public",
+      "title": "京张沿线人工智能创新街区重点地区街区控规草案公示采信",
+      "publisher": "北京市规划和自然资源委员会海淀分局",
+      "published_date": "2025-02-08",
+      "source_url": "https://ghzrzyw.beijing.gov.cn/chengxiangguihua/ghlgg/hd_ghlgg/202502/t20250207_4005553.html",
+      "claims": {"status":"draft_public_consultation_feedback_handled"},
+      "not_allowed_use": ["invent unreleased control drawings or statutory values"]
+    },
+    {
+      "id": "DAZHONGSI-URBAN-RENEWAL-2026",
+      "source_class": "A_official_public",
+      "title": "百年京张AI创新带-南部大钟寺AI产业集聚区更新片区",
+      "publisher": "北京市城市更新服务平台 / 首都之窗",
+      "published_date": "2026-07-13",
+      "source_url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/xmgsh/202607/t20260714_4762615.html",
+      "claims": {"status":"publicly_listed_comprehensive_renewal_area","implementation_focus":["project inventory","phased renewal","public-commercial balance","urban-design guidance"]},
+      "not_allowed_use": ["overwrite competition provisional key-area geometry"]
     },
     {
       "id": "JZ-PARK-OSM-WAY-122348403",
@@ -34,18 +60,12 @@
       "osm_type": "way",
       "osm_id": 122348403,
       "tag_hint": "leisure=park",
-      "use": "independent public-map cross-check and network/POI discovery; ODbL attribution required",
       "formal_claim": false
     }
   ],
   "research_decision": {
-    "phase1_segment_role": "first site-grounded pilot segment for v0.4 temporal network",
-    "next_inputs": [
-      "independently reconstructed OSM walk network",
-      "verified station entrances and crossings",
-      "POI/opening-hours layer",
-      "published transit operating windows",
-      "explicitly separated synthetic demand scenarios"
-    ]
+    "first_field_pilot": "AI Origin Community × built Jing-Zhang Heritage Park Phase I",
+    "reason": "Real built/open public space overlaps a dense near-campus AI innovation community, allowing governance validation before capital construction.",
+    "next_inputs": ["timed manual pedestrian/accessibility audit","verified entrances/crossings","operator-confirmed activity windows","complaint/management interface","aggregate event counts only","independent P0/P1 review"]
   }
 }
