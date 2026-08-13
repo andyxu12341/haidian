@@ -1,0 +1,36 @@
+name: v05-check
+
+on:
+  push:
+    branches:
+      - tmp-v05-check
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Print current SHA-256 values
+        shell: bash
+        run: |
+          S=submissions/andyxu12341/jingzhang-city-timetable
+          sha256sum "$S/proposal.md" "$S/proposal.en.md" "$S/assumptions.json" "$S/sources.json"
+      - name: Build exact PR changed-file list
+        shell: bash
+        run: |
+          git remote add upstream https://github.com/open-city-ai/haidian.git || true
+          git fetch --depth=1 upstream 5466f2e137750a341b55dcdc9a87a277b8c87eb3
+          git diff --name-only 5466f2e137750a341b55dcdc9a87a277b8c87eb3...HEAD | grep '^submissions/andyxu12341/' > /tmp/changed.txt
+          cat /tmp/changed.txt
+      - name: Run deterministic validator
+        shell: bash
+        run: |
+          python3 scripts/validate_submission.py --repo-root . --pr-author andyxu12341 --changed-files-list /tmp/changed.txt --json
