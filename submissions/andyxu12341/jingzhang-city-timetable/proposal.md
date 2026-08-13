@@ -1,216 +1,181 @@
 ---
-title: "京张时权：从空间使用权到时间使用权的 AI 城市时刻表"
+title: "京张时权 · THE CITY TIMETABLE：从空间使用权到时间使用权"
 author_github: "andyxu12341"
 language: "zh"
 proposal_format_version: "2"
 bilingual_contract_version: "1"
 translation_file: "proposal.en.md"
 license: "COMMUNITY-DISPLAY-ONLY"
-summary: "以“时间使用权”作为核心规划变量，将铁路运行图转译为 AI 城市的 City Timetable。方案用 T0–T3 权利层级、TimeSlot Contract、12 个 AI+ 场景、三类重点区时间治理原型和 15 分钟时间扩展网络，把人、机器人、物流、青年活动与公共服务的空间冲突转化为可公开、可复算、可人工接管和可回滚的时序规则。"
+summary: "以时间使用权作为与空间使用权并列的规划变量，用 T0–T3 权利层级、TimeSlot Contract、12 个 AI+ 场景和时间扩展网络组织人机时序冲突；进一步把 AI 原点社区与已建成京张铁路遗址公园一期作为首个可执行小试，形成可公开、可拒绝、可人工接管和可回滚的城市时刻表。"
 tracks: ["robotics-autonomous-mobility", "youth-friendly-public-space", "jingzhang-heritage-narrative"]
 scenarios: ["robot-delivery-low-speed", "ai-traffic-walkability", "ai-cultural-guide"]
-iteration: "v0.4-mainline-time-rights"
+iteration: "v0.5-site-grounded-pilot"
 ---
 
-# 京张时权 · JINGZHANG TIME RIGHTS
-## 从空间使用权到时间使用权｜THE CITY TIMETABLE
+# 京张时权 · THE CITY TIMETABLE
+## 从空间使用权到时间使用权｜JINGZHANG TIME RIGHTS
 
-传统城市设计主要回答“什么功能放在哪里”。但在 AI 城市里，同一条街道、广场和公共界面会在一天中被通勤者、居民、学生、机器人、低速接驳、物流、夜间活动和应急系统反复争用。**本方案把“时间使用权”提升为与空间使用权同等重要的城市设计变量。**
-
-京张铁路的历史价值不只是一条线形遗产，也包含“时刻、会让、优先、延误、恢复”的运行逻辑。本案保留“运行图”作为机制，但把方案主命题从容易撞题的“运行图”进一步推进为 **TIME RIGHTS / 时间使用权**：空间能否切换，不由 AI 自己决定，而由预先公开的权利、优先级、停止条件与人工责任共同决定。
+传统城市设计主要回答“什么功能放在哪里”。AI 城市还必须回答：**同一空间在什么时候由谁优先使用，冲突时谁退出，失效后如何恢复。** 本方案因此把“时间使用权”提升为与空间使用权并列的规划变量。京张铁路的“时刻、会让、优先、延误、恢复”成为机制原型；`THE CITY TIMETABLE` 是运行系统，**京张时权**是规划主张。
 
 ![京张时权主视觉](assets/figures/time-rights-hero.svg)
 
-当前成果为 open-call formal submission，不代表政府批准、法定规划、工程可行性、自动驾驶许可或现场实测绩效。
+本成果为 open-call formal submission，不代表政府批准、法定规划、工程可行性、自动驾驶许可或现场实测绩效。
 
 ## 设计依据与资料清单
 
-项目名称、三层范围、三处重点区域、任务与成果深度以官方征集公告为主控依据 [source:OFFICIAL-ANNOUNCEMENT]；智能体共创原则、六项 Agent 任务、场景卡、画像、地标与长期运营要求以任务书为依据 [source:AGENT-TASKBOOK]。城市设计、控规边界意识与用地分类分别参照仓库登记的官方标准本地快照 [standard:MOHURD-URBAN-DESIGN-MEASURES] [standard:MOHURD-CONTROL-DETAILED-PLANNING] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]。
+项目范围、三处重点区域和设计任务以官方征集公告为主控依据 [source:OFFICIAL-ANNOUNCEMENT]；六项 Agent 任务、场景卡、画像、地标和长期运营要求来自任务书 [source:AGENT-TASKBOOK]。城市设计、控规边界意识与用地分类参照仓库登记的官方标准 [standard:MOHURD-URBAN-DESIGN-MEASURES] [standard:MOHURD-CONTROL-DETAILED-PLANNING] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]。
 
-当前公开资料仍缺少可信的 official SITE_BOUNDARY、三处重点区精确 polygon，以及 FAR、建筑高度、密度、退线、道路红线、权属、市政、文保等正式控制。提交中的总体边界和重点区继续标记为 `provisional_constraint`、`official_boundary=false`，只用于生成、可视化、方法实验和临时自检 [source:BOUNDARY-SOURCE] [assumption:A-BOUNDARY-001]。
+官方精确 SITE_BOUNDARY、三处重点区 polygon，以及 FAR、高度、密度、退线、道路红线、权属、市政和文保等控制仍未完整取得，因此竞赛几何继续标记为 `provisional_constraint`、`official_boundary=false` [source:BOUNDARY-SOURCE] [assumption:A-BOUNDARY-001]。
 
-时间扩展网络方法参考交通可达性研究中以 time-expanded network 表达时刻变化、等待与可达机会的做法 [source:METHOD-TIME-EXPANDED-2026]；本案将其缩小为概念性城市公共空间 proof-of-method，而不是把交通论文的参数直接移植到北京。
+但本轮增加了可支撑“为什么在这里先试”的**真实场地证据**：京张铁路遗址公园一期已建成开放，清华东路至知春路约 2.5 km、16.8 ha [source:JZ-PARK-PHASE1-OFFICIAL]；2026 年二期配套项目完工，北段约 30.01 ha，并形成骑行、慢跑、步行串联的鱼骨状慢行网络 [source:JZ-PARK-PHASE2-2026]。北京 AI 原点社区约 3 km²，公开信息显示汇聚 30 余所高校及科研机构、230 余家 AI 企业和约 10 万 AI 相关专业学子 [source:AI-ORIGIN-2026-BJFGW]。京张沿线人工智能创新街区街区控规草案亦已完成公开公示与意见采信环节 [source:JZ-CONTROL-PLAN-PUBLIC-2025]。
+
+这些公开事实只用于确定现实研究背景和 Pilot 选择，**不替代竞赛 official polygon，也不推导未公开的法定指标。** 时间扩展网络仅借鉴时变可达性的方法结构，不搬用外地论文参数 [source:METHOD-TIME-EXPANDED-2026]。
 
 ![研究方法链](assets/figures/temporal-network-method.svg)
 
 ## 三层范围工作框架
 
-官方任务形成约 43.6 km² 统筹研究范围、约 11.4 km² 总体设计范围和 368.4 ha 三处重点区域 [source:OFFICIAL-ANNOUNCEMENT]。
+官方任务形成约 43.6 km² 统筹研究范围、约 11.4 km² 总体设计范围和三处重点区域合计约 368.4 ha [source:OFFICIAL-ANNOUNCEMENT]。
 
-- **43.6 km²：创新协同运行域。** 研究高校成果、企业测试、公共服务、物流与全球活动在不同时间尺度上的关系。
-- **11.4 km²：City Timetable 主系统。** 建立恒定权利空间、日常节律空间、弹性预约空间与人工确认事件空间。
-- **368.4 ha：三类时间治理实验。** 众智园验证测试与安全；AI 原点社区验证 24h 共创与居民日常权利平衡；大钟寺验证轨道客流、消费、夜间活动和物流错峰 [metric:key_area_count]。
+- **43.6 km²：创新协同运行域。** 研究高校、企业、公共服务、物流和活动在时间尺度上的关系。
+- **11.4 km²：City Timetable 主系统。** 建立恒定权利、日常节律、弹性预约和人工确认事件空间。
+- **三重点区：三类时间治理实验。** 众智园验证测试安全；AI 原点验证青年共创与居民日常权利；大钟寺验证轨道客流、商业、夜间活动与物流错峰 [metric:key_area_count]。
 
 ![三层范围与时权总体框架](assets/figures/site-overview.png)
 
-三层尺度由同一套 T0–T3 权利逻辑相连：上层研究城市活动节律，中层组织公共空间共享，重点区把规则落成可被检查、可被拒绝的空间原型。
+三层都使用 T0–T3 权利语法，上层研究节律，中层组织共享，重点区把规则变成可检查、可拒绝、可回滚的空间原型。
 
 ## 统筹研究范围产业与未来城市研究
 
-传统空间规划回答“什么在什么地方”，京张时权增加“什么在什么时候发生、谁优先、冲突时谁必须退出”。总体形成一条约 9.22 km 的概念**时间主脊**和三个重点区时序接口 [data:geometry/roads.geojson#ROAD-001] [metric:time_spine_length_m]。
+京张时权增加四个传统空间规划较少直接表达的问题：**什么时候发生、谁优先、什么证据允许切换、谁在冲突时退出。** 总体形成约 9.22 km 的概念时间主脊和三个重点区时序接口 [data:geometry/roads.geojson#ROAD-001] [metric:time_spine_length_m]。
 
-本案对 6 个国际案例提取可迁移机制：NYC Open Streets 的明确时段切换与例外通行、LADOT Code the Curb 的机器可读路权、OMF Curb Data Specification 的开放数据结构、Singapore LTA/CETRAN 的受控自动驾驶测试、TfL School Streets 的固定公共权利时段、Paris Rues aux écoles 的青年友好公共空间 [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS] [source:CASE-SG-LTA-AV] [source:CASE-TFL-SCHOOL-STREETS] [source:CASE-PARIS-RUES-ECOLES]。
+六个案例只提取机制：NYC Open Streets 的时段开放、LADOT Code the Curb 与 OMF CDS 的机器可读路权、Singapore LTA/CETRAN 的受控自动驾驶测试、TfL School Streets 的固定优先时段、Paris Rues aux écoles 的青年友好公共空间 [source:CASE-NYC-OPEN-STREETS-2026] [source:CASE-LADOT-CODE-THE-CURB] [source:CASE-OMF-CDS]。结论不是“部署更多传感器”，而是让规则**人能理解、机器能读、责任人能复核、失败能回滚**。
 
-由此得到的核心结论是：**AI 原生城市不是传感器更多，而是规则能够被人理解、被机器读取、被责任人复核，并在失败时安全退回。**
-
-在研究表达上，本案提出一条可继续深化为考研/学术研究的方法链：
-
-**Planning Question → Time Rights → TimeSlot Contract → Time-expanded Network → Spatial Prototype → Validation / Rollback**
-
-其中每一步都有机器可读文件或图件对应 [data:visual/assets/temporal_network.json] [data:visual/assets/timeslot_contract.json]。
+方法链为：**Planning Question → Time Rights → TimeSlot Contract → Time-expanded Network → Spatial Prototype → Validation / Rollback**。本案以 12 节点 × 96 个 15 分钟时片构造 proof-of-method；所有需求权重和运行窗均是设计假设 [assumption:A-TEMPORAL-MODEL-001]。
 
 ## 总体设计范围城市更新与控规深度城市设计
 
-本案用四级时权层替代“所有空间永远保持一种功能”的假设 [data:visual/assets/timeslot_contract.json]：
+四级时权构成同一套空间运行语法 [data:visual/assets/timeslot_contract.json]：
 
-- **T0 恒定权利 / Constant Rights**：无障碍连续通行、应急、基础步行、必要非数字服务。不可预约、不可被 AI 覆盖。
-- **T1 日常节律 / Routine Rhythm**：通勤高峰、学校时段、日常商业、公园慢行与居民基本出入。
-- **T2 弹性预约 / Flexible Reservation**：机器人配送、低速接驳测试、社区课程、临时展陈、青年活动。
-- **T3 人工确认事件 / Human-confirmed Event**：AI 大会、特殊测试周、Demo Night、大型路演和高客流活动，必须有具名责任角色。
+- **T0 恒定权利**：无障碍、应急、基础步行和必要非数字服务，不可被预约覆盖。
+- **T1 日常节律**：通勤、学校、居民出入、日常商业和公园慢行。
+- **T2 弹性预约**：机器人配送、低速测试、社区课程、展陈和青年活动。
+- **T3 人工确认事件**：大会、特殊测试周、Demo Night 等高客流事件，必须有具名责任角色。
 
-TimeSlot Contract 的最小字段包括：空间单元、时间窗、允许主体、优先级、无障碍保护、人类责任人、停止条件、回滚动作、日志、非 AI fallback 与验证方法。P0 生命安全/恒定权利始终高于日常、预约和事件活动；堵塞唯一无障碍/应急通道必须直接拒绝 [metric:validator_negative_case_count]。
+TimeSlot Contract 至少记录空间单元、时间窗、允许主体、优先级、无障碍保护、责任人、停止条件、回滚、日志、非 AI fallback 和验证方法。堵塞唯一无障碍/应急通道直接拒绝 [metric:validator_negative_case_count]。
 
 ![用地与时序结构](assets/figures/land-use-structure.png)
 
-### 24h 可逆街道类型
-
-空间设计不只停留在规则表。方案补充一个**类型化街道剖面**：建筑首层界面—T0 步行—弹性界面—绿化/停留—交通/服务。07:30 人流优先，11:00 可进入受控机器人/配送状态，19:30 转为青年 Demo Night，23:00 回到安静与必要服务；T0 贯穿四种状态，不随预约关闭。
+24h 可逆街道类型把规则落成“**剖面 + 时刻表 + 权利合同**”：07:30 人流优先，11:00 可进入受控 T2，19:30 可转青年活动，23:00 回到安静和必要服务；T0 始终连续。该剖面是类型表达，不代表已测道路宽度或法定红线 [assumption:A-CONTROLS-001]。
 
 ![24h可逆街道剖面](assets/figures/street-section-24h.svg)
 
-该剖面仅为类型表达，不对应已测道路宽度或法定红线 [assumption:A-CONTROLS-001]。
-
 ## 重点区域详细设计
 
-三处重点区不是复制同一套“AI 设施”，而是承担三种不同的时间治理实验 [data:geometry/key_areas.geojson#PROV-KEY-001] [depth:three_key_area_detailed_design]。
+三处重点区承担不同实验，不复制同一套“AI 设施” [depth:three_key_area_detailed_design]。
 
 ### 众智园：AI 时序测试场
 
-验证机器人配送时间窗、低速接驳冲突降级、人群高峰自动退出、人工接管与日志回放。**白天不是始终测试、晚上也不是始终开放**：早高峰人流优先；日间安排受控测试；晚间转为公众观察和 Demo；夜间维护并保留 T0 必要通行 [metric:test_validation_scenario_count]。
+早高峰人流优先，日间安排受控机器人配送/低速接驳测试，晚间可进入公众观察与 Demo，夜间维护并保留 T0。重点验证冲突降级、自动退出、人工接管与日志回放 [metric:test_validation_scenario_count]。
 
 ### 北京 AI 原点社区：24h 共创时序社区
 
-早高峰支持上学、工作和公共服务；日间学习与共创；晚间 Demo Night、轻运动和青年第三空间；夜间切回居民安静与必要服务。基本公共服务不依赖强制 App、人脸识别或持续个体轨迹，保留物理导视、纸质信息或人工服务的等价路径 [metric:non_ai_fallback_coverage]。
+现实基础使这里最适合作为第一处落地验证：约 3 km² 的近校创新街区与已建成京张一期公共空间相邻 [source:AI-ORIGIN-2026-BJFGW] [source:JZ-PARK-PHASE1-OFFICIAL]。
+
+#### 首个可执行小试：AI 原点 × 京张一期「TIME RIGHTS 1.0」
+
+首轮不等待新建道路、拆迁或大型资本工程，而以清华东路—知春路 2.5 km / 16.8 ha 已建公共空间为现实底板。Pilot 只验证一件事：**在不牺牲 T0 的前提下，青年活动、公共服务、展示和有边界技术测试能否通过公开、可拒绝、可回滚的时间合同共存。** 机器可读协议见 `research/ai-origin-time-rights-pilot.json` [assumption:A-PILOT-001]。
+
+- **P0｜2 周基线**：人工巡查主要出入口、无障碍连续性、早晚高峰、活动/安静节点、投诉管理接口和非数字服务入口；只记录聚合计数，不建立个人轨迹。
+- **P1｜4 周可逆小试**：建议 07:30–09:30 人流优先；11:00–15:00 为待确认的有边界 T2 展示/受控测试；18:30–21:00 青年与社区活动；21:00 后回到安静和必要服务。首轮关闭 T3 大型事件。
+- **P2｜条件式扩展**：只有 T0 连续性、人工接管、投诉响应、非 AI fallback 与日志完整度全部达标，才扩大时段、节点或场景，否则回到 P0。
+
+责任链建议为“公园运营/管理方—属地街道与社区—AI 原点运营主体—高校/志愿者—测试企业—无障碍与居民代表—独立复核者”，**不表示任何单位已承诺参加**。出现唯一无障碍/应急路径被占、责任人缺席、隐私越界或非 AI 等价路径失效时，立即冻结该时段。
+
+首轮 Gate 不是机器人吞吐量，而是公共权利：`T0_blocked_minutes=0`、应急/无障碍阻断事件=0、非 AI fallback 目标 100%、T2 责任人与停止条件记录目标 100%，并用 P0 实测基线比较 P1 高峰冲突分钟。以上均为**待验证目标，不是已实现绩效**。
+
+![AI 原点 × 京张一期 TIME RIGHTS 1.0 小试](assets/figures/ai-origin-pilot.svg)
 
 ### 大钟寺：智能原生生活时序场
 
-早晚客流高峰坚持人流/换乘优先；日间商业与日常生活；晚间青年文化与消费；夜间安排低峰补货/物流。高客流状态触发机器活动退出。由于 `PROV-KEY-003` 仍需官方数据复核，本阶段不深化确定性的站城四象限和工程落位 [assumption:A-DAZHONGSI-001]。
+高峰坚持人流/换乘优先，日间商业与生活，晚间青年文化，夜间错峰补货。2026 年公开的“南部大钟寺 AI 产业集聚区更新片区”已提出实施单元统筹、近中远期更新、公益性/经营性空间统筹和城市设计引导，说明这里存在现实更新实施框架 [source:DAZHONGSI-URBAN-RENEWAL-2026]。但该公开项目边界**不自动等于竞赛 provisional key-area polygon**，因此仍不伪造站城四象限或工程落位 [assumption:A-DAZHONGSI-001]。
 
 ![三个重点区核心任务](assets/figures/key-areas.png)
 
-![三个重点区24h时序矩阵](assets/figures/key-areas-24h.svg)
-
-三处 AI 朝圣节点分别为：**运行图大厅 TIMETABLE HALL、时间交换站 TIME EXCHANGE、百年发车台 CENTENNIAL DEPARTURE** [data:geometry/public_space.geojson#PUBLIC-001]。它们既是公共空间，也是“规则看得见”的城市界面：显示当前状态、下一状态、T0 权利、人工责任和异常回滚。
+三处 AI 朝圣节点为 **TIMETABLE HALL / 运行图大厅、TIME EXCHANGE / 时间交换站、CENTENNIAL DEPARTURE / 百年发车台** [data:geometry/public_space.geojson#PUBLIC-001]，其共同作用是把当前状态、下一状态、T0 权利、责任人与异常回滚公开显示。
 
 ## AI 创新生态、人才画像与 AI+ 场景
 
-机器可读场景文件包含 6 类用户画像和 12 个完整场景 [data:visual/assets/scenarios.json] [metric:scenario_count]：
+品牌系统统一使用 **京张时权 · THE CITY TIMETABLE**；视觉语法来自铁路时刻轴、站点、会让线和恢复线，而不是通用“科技蓝光”。六类用户画像覆盖 AI 创业/开发者、高校学生与青年研究者、周边居民、无障碍与高龄使用者、商户与夜间服务者、物流/运维/应急角色 [metric:scenario_count]。
 
-1. 机器人配送时间窗压力测试；2. 低速自动接驳冲突降级；3. 人群高峰自动退出；4. 人工接管与日志回放；5. 青年 Demo Night 可逆公共客厅；6. 免 App 公共服务导航；7. AI 文化导览 + 非数字等价路线；8. 夜间学习与轻运动切换；9. 场景开放预约与准入；10. 企业 Demo 时段共享；11. 活动日多主体排程；12. 公共时权表透明展示。
+12 个场景包括：机器人配送时间窗、低速接驳冲突降级、人群高峰自动退出、人工接管与日志回放、Demo Night 可逆客厅、免 App 公共服务导航、AI 文化导览 + 非数字路线、夜间学习与轻运动、场景预约准入、企业 Demo 时段共享、活动日多主体排程、公共时权表。至少四项属于测试验证场景 [metric:test_validation_scenario_count]。
 
-画像覆盖 AI 创业团队/开发者、高校学生与青年研究者、周边居民、无障碍与高龄使用者、商户与夜间服务从业者、物流/运维/应急角色。
-
-12 个场景全部写入人工复核和非 AI fallback 字段，因此 `human_override_coverage` 与 `non_ai_fallback_coverage` 在**设计合同层**均为 100%；这不代表未来真实运营绩效 [metric:human_override_coverage] [metric:non_ai_fallback_coverage] [assumption:A-METRICS-001]。
+所有场景都要求人工复核和非 AI fallback，设计合同层覆盖率为 100%，但不等于真实运营绩效 [metric:human_override_coverage] [metric:non_ai_fallback_coverage] [assumption:A-METRICS-001]。长期运营包括 Open Timetable Week、Urban Agent Scheduling Challenge、Robotics Low-speed Test Week、Jing-Zhang Demo Night 与 Annual Time Rights Review，用持续复核而非一次性科技展维持品牌资产。
 
 ## 用地、建筑规模与拆改留方案
 
-`geometry/land_use.geojson` 使用可校验 `land_use_code` 表达概念功能结构，但明确不构成控规批准 [data:geometry/land_use.geojson#LU-001] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]。FAR、正式高度、建筑密度和退线均保持 unknown [metric:floor_area_ratio]。
+`geometry/land_use.geojson` 仅表达可校验的概念功能结构，不构成控规批准 [data:geometry/land_use.geojson#LU-001] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]。FAR、正式高度、密度和退线保持 unknown [metric:floor_area_ratio]。
 
-建筑层设置 6 个 `candidate_retrofit` 示意单元，只用于表达“优先存量适应性改造、可逆首层与公共界面”的设计方向，不对应已核实现状建筑。其概念基底合计约 88,629 m² [metric:building_footprint_area_sqm]。不得据此推断拆迁量、新建量或确定性工程规模 [assumption:A-CONTROLS-001]。
-
-本轮深化把“建筑—街道”界面加入时序设计：首层收发、候取、共享会议、夜间学习等可承担不必长期占道的功能，减少把所有动态需求都压到路缘和步行空间。
+建筑层 6 个 `candidate_retrofit` 单元只用于表达“优先存量适应性改造、可逆首层与公共界面”，概念基底约 88,629 m² [metric:building_footprint_area_sqm]。首层收发、候取、共享会议和夜间学习等功能优先进入可逆建筑界面，减少长期占用路缘与步行空间；不据此推断拆迁量或确定性新建规模 [assumption:A-CONTROLS-001]。
 
 ## 交通、轨道、市政与公共服务设施
 
-道路层用 `ROAD_CENTERLINE` 表达概念时间主脊和三个时序接口，不是现状道路中心线或工程定线 [data:geometry/roads.geojson#ROAD-001]。T0 权利约束使用 `REGULATORY_CONTROL` 枚举承载方案内部规则，但所有 feature 都标明 `geometry_role=design_proposal`、`official_boundary=false`，不是法定道路/消防红线 [data:geometry/constraints.geojson#CONST-001]。
-
-T0 概念连续线合计约 12.33 km，核心含义是让无障碍、应急和基础步行在任何排程模式下保持连续 [metric:t0_constant_rights_corridor_length_m]。
+概念 Time Spine 和三个时序接口不是现状道路中心线或工程定线 [data:geometry/roads.geojson#ROAD-001]。T0 概念连续线约 12.33 km，用来表达无障碍、应急和基础步行在任何排程状态下保持连续 [metric:t0_constant_rights_corridor_length_m]。
 
 ![交通、蓝绿与T0恒定权利](assets/figures/mobility-bluegreen.png)
 
-市政与新基建把**公开运行状态、机器可读规则、人工接管、异常日志、非数字备份**视为数字基础设施的一部分；能源、算力、传感器、通信、市政管线和消防容量仍待专业资料与专项论证 [assumption:A-CONTROLS-001]。
+数字基础设施不仅是传感器，还包括公开运行状态、机器可读规则、人工接管、异常日志、回滚记录和非数字备份。能源、算力、通信、市政与消防容量仍待专业资料 [assumption:A-CONTROLS-001]。
 
-### 时间扩展网络 proof-of-method
-
-为避免“时间规划”只停留在口号，本案构造 12 个概念节点 × 96 个 15 分钟时片的 time-expanded network [data:visual/assets/temporal_network.json]。节点来自六个概念存量改造单元与六个时序公共空间；步行连边只用于方法演示，需求权重和机器运行窗均为显式设计假设 [assumption:A-TEMPORAL-MODEL-001]。
-
-![时间扩展网络原理](assets/figures/temporal-network-method.svg)
-
-比较“未协调基线”和“Time Rights 排程”，保持三处弹性空间的机器服务总时长均为 10h/日，只把测试/物流从人群高峰尽量转移到低峰：
-
-- 高峰人机冲突时长：**10h → 3h，减少 70%** [metric:peak_conflict_reduction_ratio]；
-- 高峰三处可逆空间可用率：**63.0% → 88.9%，提升 25.9 个百分点** [metric:peak_flexible_space_availability_gain_pp]；
-- 30 分钟高峰时序可达机会：**3.70 → 3.91，提升 5.7%** [metric:temporal_reachability_gain_ratio]；
-- 机器服务总时长仍为 **10h/日**，不是通过“少运行”换取结果 [metric:machine_service_hours_preserved]。
-
-![时序可达性场景实验](assets/figures/temporal-proof-results.svg)
-
-这些数值只证明**规则在给定假设下的内部行为**，不证明真实城市绩效；现场客流、真实机器人需求、道路宽度、OD、活动时段与 official polygon 到位后必须重新计算 [assumption:A-TEMPORAL-MODEL-001]。
+时间扩展 proof 在保持机器服务总时长 10h/日不变的设定下，将高峰人机冲突从 10h 降至 3h（-70%），高峰可逆空间可用率由 63.0% 提至 88.9%（+25.9pp），30 分钟高峰时序可达由 3.70 提至 3.91（+5.7%）[metric:peak_conflict_reduction_ratio] [metric:peak_flexible_space_availability_gain_pp] [metric:temporal_reachability_gain_ratio]。这些只证明模型在给定假设下的内部行为，不能写成现场效果 [assumption:A-TEMPORAL-MODEL-001]。
 
 ## 蓝绿空间、公共空间与城市风貌
 
-城市风貌不把“未来科技蓝光”当作 AI 的唯一视觉语言，而将铁路运行图的时间轴、站点、会让线和恢复逻辑转译为导视、铺装、公共信息和活动系统 [standard:MOHURD-URBAN-DESIGN-MEASURES]。
+概念绿地层按 provisional boundary 复算 `green_ratio=31.5058%`，不是批准绿地率 [metric:green_ratio]。六处可逆公共空间的概念比例约 1.4959% [metric:public_space_ratio]。设计重点不是追求一个比例，而是让空间在不牺牲 T0 的前提下拥有多个时间模式。
 
-概念绿地层由遗址公园时序绿廊与三处重点区弹性开放绿地组成。按临时总体边界和 EPSG:4548 复算，当前 `green_ratio=31.5058%`；它是概念图层比例，不是 approved green ratio，也不代表遗址公园官方边界 [metric:green_ratio]。
-
-六处可逆公共空间包括三处朝圣节点和三处测试/青年/智能生活空间，概念面积约占临时范围 1.4959% [metric:public_space_ratio] [metric:reversible_public_space_count]。设计重点不是追求这个比例，而是证明同一空间能够在不牺牲 T0 权利的前提下拥有多个时间模式。
-
-文化叙事由“百年发车—开放会让—智能运行—可恢复城市”升级为“**空间权利 + 时间权利**”双层叙事：铁路历史提供共享时间的文化原型，中关村提供开放创新与成果转化，AI 新文化提供透明规则、责任边界和人机协作。
+文化叙事是“**空间权利 + 时间权利**”：京张铁路提供共享时间的历史原型，中关村提供开放创新，AI 新文化提供透明规则、责任边界和人机协作。风貌以时间轴、站点、会让和恢复逻辑进入导视、铺装、公共信息与活动系统 [standard:MOHURD-URBAN-DESIGN-MEASURES]。
 
 ## 更新项目清单、实施政策与分期计划
 
-本节实施顺序由分期图层与场景数量共同校核 [data:geometry/phasing.geojson#PHASE-001] [metric:scenario_count]。
+近期首先实施 **AI 原点 × 京张一期 TIME RIGHTS 1.0** 的 P0 两周基线 + P1 四周可逆小试，同步完成 TimeSlot Contract、公开时权表、T0 无障碍/应急校核和免 App 导航 [assumption:A-PILOT-001]。首轮用已建公共空间验证治理，不先投入大型建设。
 
-- **近期**：完成 TimeSlot Contract、公开时权表界面、T0 无障碍/应急校核、免 App 导航、Demo Night 可逆客厅、24h 类型街道试验，以及不进入普通公共道路的受控机器人测试。
-- **中期**：在 official polygon 与专业条件补齐后，以真实人流/活动/物流时段替换 proof-of-method 假设，重新计算时序可达性与冲突。
-- **远期**：只有在交通、安全、规划、市政、文保、权属与运营审批路径清晰后，才讨论更高等级的具身智能公共运行与空间改造 [assumption:A-ROBOTICS-001]。
-
-年度运营包括 Open Timetable Week、Urban Agent Scheduling Challenge、Robotics Low-speed Test Week、Jing-Zhang Demo Night 和 Annual Time Rights Review。它们用于反复验证冲突规则、公众体验和运营责任，而非仅作为营销活动。
+中期在 official polygon、道路、客流、活动和物流数据补齐后，以现场基线替换 proof-of-method 假设，重新计算时序可达、冲突与空间可用率。远期只有在交通、安全、规划、市政、文保、权属与运营许可明确后，才讨论更高等级具身智能公共运行 [assumption:A-ROBOTICS-001]。
 
 ## 指标体系、面积复算与合规矩阵
 
-本节数值以结构化指标文件、空间图层和时间扩展模型复算为准 [metric:site_area_sqm] [data:geometry/green_space.geojson#GREEN-001] [data:visual/assets/temporal_network_results.json]。
+结构化指标、空间图层和时间模型分别保存“空间量、设计合同覆盖、情景 proof”，不能混成项目绩效 [metric:site_area_sqm]。
 
-| 指标 | 当前值 | 限制 |
+| 指标 | 当前值 | 边界 |
 | --- | ---: | --- |
-| `site_area_sqm` | 11,412,825.386 m² | provisional boundary，非 official redline |
-| `key_area_count` | 3 | 数量来自任务要求，几何仍 provisional |
+| `site_area_sqm` | 11,412,825.386 m² | provisional boundary |
 | `building_footprint_area_sqm` | 88,628.915 m² | 6 个概念 retrofit 单元 |
-| `green_ratio` | 31.5058% | 概念绿地层比例，不是规划绿地率 |
-| `public_space_ratio` | 1.4959% | 仅六处时序公共空间 |
-| `time_spine_length_m` | 9,216.69 m | 概念时间主脊，不是工程线位 |
-| `t0_constant_rights_corridor_length_m` | 12,327.509 m | 设计协议权利线，不是法定红线 |
-| `scenario_count` | 12 | 机器可读场景卡 |
-| `test_validation_scenario_count` | 4 | 产业测试验证场景 |
+| `green_ratio` | 31.5058% | 概念绿地层比例 |
+| `public_space_ratio` | 1.4959% | 六处时序公共空间 |
+| `time_spine_length_m` | 9,216.69 m | 概念主脊 |
+| `scenario_count` | 12 | 场景卡 |
 | `human_override_coverage` | 100% | 设计字段覆盖率 |
 | `non_ai_fallback_coverage` | 100% | 设计字段覆盖率 |
-| `peak_conflict_reduction_ratio` | 70% | 场景化 proof-of-method |
-| `peak_flexible_space_availability_gain_pp` | +25.9 pp | 场景化 proof-of-method |
-| `temporal_reachability_gain_ratio` | +5.7% | 12节点/15分钟模型，非实测 |
-| `machine_service_hours_preserved` | 10h → 10h | 两方案机器服务时长保持不变 |
-| `floor_area_ratio` | unknown | 等待官方控规与 official polygon |
+| `peak_conflict_reduction_ratio` | 70% | 情景 proof，非实测 |
+| `floor_area_ratio` | unknown | 待正式控规与边界 |
 
 ![指标与证据链](assets/figures/metrics-evidence.png)
 
-公告、Agent 1–6、专业标准、设计深度、图层、指标和风险假设之间的追踪关系分别见 `compliance_matrix.json`、`standard_matrix.json`、`design_depth_matrix.json` [depth:metrics_recalculation]。
+任务、标准、设计深度、指标与风险追踪见 `compliance_matrix.json`、`standard_matrix.json`、`design_depth_matrix.json`、`metrics.json` 和 `assumptions.json` [depth:metrics_recalculation]。
 
 ## 风险、版权与合规说明
 
-1. **边界**：official polygons 缺失，所有 provisional-derived 结果在官方数据发布后整体复算 [assumption:A-BOUNDARY-001]。
-2. **控规与工程**：FAR、高度、密度、退线、道路、市政、文保、权属等不自行推定 [assumption:A-CONTROLS-001]。
-3. **具身智能**：测试不等于许可；公共部署需另行满足安全、交通、监管和运营要求 [assumption:A-ROBOTICS-001]。
-4. **大钟寺**：provisional 几何复核完成前，不把粗略矩形深化成确定性的站城四象限方案 [assumption:A-DAZHONGSI-001]。
-5. **定量模型**：time-expanded network 的需求权重、运行窗、节点和步行图均是设计实验输入，不是现场数据；不得把 -70%、+25.9pp、+5.7% 写成真实项目绩效 [assumption:A-TEMPORAL-MODEL-001]。
-6. **指标**：设计合同覆盖率与真实运营事故率、冲突拒绝率、满意度严格分开 [assumption:A-METRICS-001]。
-7. **隐私与公平**：基本公共服务不依赖人脸识别、持续个人追踪、强制 App 或单一供应商。
-8. **版权**：核心图、时间扩展网络图和图纸均由本案结构化数据程序化生成，不复制其他投稿、企业 Logo 或未经授权图像；详见 `report/copyright_statement.md`。
-9. **状态**：本成果只称作 open-call formal submission；在维护者合并、专业复核或后续实施前，不使用“获批、入选、已实施”等表述。
+1. official polygons 缺失，provisional-derived 面积和落位须整体复算 [assumption:A-BOUNDARY-001]。
+2. FAR、高度、道路、市政、文保、权属等不自行推定 [assumption:A-CONTROLS-001]。
+3. AI 原点 Pilot 尚未授权、尚未运行；时间窗、责任链和 Gate 都是待确认协议 [assumption:A-PILOT-001]。
+4. 机器人测试不等于公共部署许可 [assumption:A-ROBOTICS-001]。
+5. -70%、+25.9pp、+5.7% 是情景模型结果，不得作为现场绩效 [assumption:A-TEMPORAL-MODEL-001]。
+6. 基本公共服务不依赖人脸识别、持续个人追踪、强制 App 或单一供应商。
+7. 核心图和模型为本方案原创/程序化生成，不复制其他投稿、企业 Logo 或未经授权图像；版权说明见 `report/copyright_statement.md`。
 
 ## 参考资料
 
 - 百年京张 AI 创新带城市设计国际方案征集资格预审公告 [source:OFFICIAL-ANNOUNCEMENT]
 - 面向全球智能体开展百年京张 AI 创新带城市设计开源征集任务书 [source:AGENT-TASKBOOK]
-- Repo public source registry [source:SOURCE-REGISTRY]
-- 城市设计、控规与用地分类官方本地参考 [standard:MOHURD-URBAN-DESIGN-MEASURES] [standard:MOHURD-CONTROL-DETAILED-PLANNING] [standard:MNR-LAND-USE-CLASSIFICATION-GUIDE]
-- NYC DOT Open Streets / LADOT Code the Curb / OMF CDS / Singapore LTA AV / TfL School Streets / Paris Rues aux écoles：机制案例，详见 `sources.json`
-- Udhayasekar, Srinivasan & Chilukuri (2026), time-expanded transit accessibility method：只用于方法学参照 [source:METHOD-TIME-EXPANDED-2026]
+- 京张铁路遗址公园一期建成开放、二期配套完工 [source:JZ-PARK-PHASE1-OFFICIAL] [source:JZ-PARK-PHASE2-2026]
+- 北京 AI 原点社区现实运行基础 [source:AI-ORIGIN-2026-BJFGW]
+- 京张沿线人工智能创新街区控规公示采信、大钟寺更新片区公开项目 [source:JZ-CONTROL-PLAN-PUBLIC-2025] [source:DAZHONGSI-URBAN-RENEWAL-2026]
+- NYC/LADOT/OMF/Singapore/TfL/Paris 机制案例及 time-expanded network 方法，详见 `sources.json` [source:METHOD-TIME-EXPANDED-2026]
