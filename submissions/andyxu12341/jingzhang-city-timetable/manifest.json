@@ -26,7 +26,7 @@
       "role": "narrative",
       "required": true,
       "language": "zh",
-      "sha256": "748a306fd253346024b6e724f9c24d43c24038f5709137bcafdf0da4951dd465"
+      "sha256": "1c070a492d701247c2e4ce1dbae2f0cfd734b3edd185ef1988ffb35b57ad7895"
     },
     {
       "path": "agent.json",
@@ -44,19 +44,19 @@
       "path": "assumptions.json",
       "role": "assumptions",
       "required": true,
-      "sha256": "33cdff4c92f3ec18d5c0177647af088eb1be1d6bc48fee3086eef66be7f355b8"
+      "sha256": "09dc691e28527c6cb5ae6c28046adc84bd8f26b83a86b53a21b3f15708a71348"
     },
     {
       "path": "sources.json",
       "role": "sources",
       "required": true,
-      "sha256": "e4a5dbfc2e25d8b8d086ab3497af6d58db8c13557b4af3b9e2bb3f8404aa1ac3"
+      "sha256": "1133d7de2943f4244627fd4f225dc8f5b4a9291eed02b64ae4bd9439addc537b"
     },
     {
       "path": "self_check.json",
       "role": "self_check",
       "required": true,
-      "sha256": "a3be0f12af06886d457daac3dfa61c453ddb773e0576794d36b6c08957acd44a"
+      "sha256": "2b003de2dd44dc9e96e8dcbb0bf1a0397de9b9a5294f7d48965d55c73b19ce5b"
     },
     {
       "path": "compliance_matrix.json",
@@ -81,13 +81,13 @@
       "role": "rendered_proposal_html",
       "required": true,
       "language": "zh",
-      "sha256": "8ed41855c5fdfa10e9519543b69865142a4c847bd4e3218bb3b56d493dda7153"
+      "sha256": "1f77b158011d0bdcbc9230b8462d7eaaefc213a1b44b5949570ca8d8d60d6589"
     },
     {
       "path": "report/narrative.md",
       "role": "narrative",
       "required": false,
-      "sha256": "811836ee6ea0d4e7e02e70d416d1bbef491d2cbc98ba5cb1af01b0b0ebbb8cc5"
+      "sha256": "098d7369f128a9288e175556ffbc2ccc6716a5efacff0f2de9822abeb794b7b8"
     },
     {
       "path": "report/copyright_statement.md",
@@ -114,7 +114,7 @@
       "role": "visualization",
       "required": true,
       "language": "zh",
-      "sha256": "7f753a1599db344ad795f9f537fa8b2e29fe4e971b6311dd9ce85f31bdb9980f"
+      "sha256": "0f42bc8e0d6683879e158d3db67c5c31865235ef025b3ddcc3391a095b33b21f"
     },
     {
       "path": "assets/figures/key-areas.png",
@@ -211,7 +211,7 @@
       "required": true,
       "language": "en",
       "translation_of": "proposal.md",
-      "sha256": "285e2c7638e4da1abeddad3f01af3bdf5bd7df56cc1b362daa991aaaa27858fb"
+      "sha256": "9e582fd83b84c95c77a83a46def51c183d84a59c7fd49688942c82658806c212"
     },
     {
       "path": "report/proposal.en.html",
@@ -219,7 +219,7 @@
       "required": true,
       "language": "en",
       "translation_of": "report/proposal.html",
-      "sha256": "ae12debef882b59de1aed6a9e2e8293320829b3b1c1b267b7dfd8f98184656ba"
+      "sha256": "f00a3e9d3b2e520f3e0a5f7486c088f72e84f39184244f83faa294f1dbf4c6cf"
     },
     {
       "path": "drawings/a3-booklet.en.pdf",
@@ -284,6 +284,96 @@
       "language": "en",
       "translation_of": "assets/figures/site-overview.png",
       "sha256": "014ac471a9e0c4f855a81a822581c1d4ac0e0224ad9d2e3095120b18e916fb30"
+    },
+    {
+      "path": "assets/figures/ai-origin-pilot.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "b7fcf2239fbb7a38d472bd6276ffc54ca140de22580e3584302ce1b208a6ed9b"
+    },
+    {
+      "path": "assets/figures/ai-origin-pilot.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/ai-origin-pilot.svg",
+      "sha256": "375adb086ac3670645535ea665b5166e59a2fa57ef04700585ddc90cde907bee"
+    },
+    {
+      "path": "assets/figures/time-rights-hero.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "dd1c2daf17d8759fe5008c539380b208fd9799ac179192982c3dad7fd046b2fd"
+    },
+    {
+      "path": "assets/figures/time-rights-hero.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/time-rights-hero.svg",
+      "sha256": "c1ea213b6c485b6ded3fca9be2e868c08034e29f92ad0f0e72cbfd16e2e80288"
+    },
+    {
+      "path": "assets/figures/temporal-network-method.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "af084ed0c6e08cb1d353a154ddefe53776cca002838a646c51aaeb2e1ae428c3"
+    },
+    {
+      "path": "assets/figures/temporal-network-method.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/temporal-network-method.svg",
+      "sha256": "0393de0b7b83d4e9199dd831eb5d6a9d368880956e8c3d4e04e2b2cd35aa39ea"
+    },
+    {
+      "path": "assets/figures/street-section-24h.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "32b3ebe968eebe83686d60c86f70482685ef5bb5a4f0fb40dfaafd01ea1562a4"
+    },
+    {
+      "path": "assets/figures/street-section-24h.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/street-section-24h.svg",
+      "sha256": "91b3e147280587d38f1a8c58283e5f732a0c7c93a7c1507974f3a6c54c2eb437"
+    },
+    {
+      "path": "assets/figures/key-areas-24h.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "43211e937e35ee6295ec2cf8906fae951f7633cef978b6a1acaff0dfec663328"
+    },
+    {
+      "path": "assets/figures/key-areas-24h.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/key-areas-24h.svg",
+      "sha256": "65c0d531d19054214f1b6e2663c7dc94a878b80e6e1394578af5f10afa741a65"
+    },
+    {
+      "path": "assets/figures/temporal-proof-results.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "zh",
+      "sha256": "453a18beb16e04d0704aaab56c07eeb9a1c264c65aef56b3c99203fd523c3054"
+    },
+    {
+      "path": "assets/figures/temporal-proof-results.en.svg",
+      "role": "proposal_figure",
+      "required": false,
+      "language": "en",
+      "translation_of": "assets/figures/temporal-proof-results.svg",
+      "sha256": "f0b52e1018d990f1093baaf34e5208022d4e7aa1713eab354146525b8ec3b35f"
     }
   ],
   "validation_claim": {

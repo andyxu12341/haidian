@@ -121,11 +121,15 @@ TimeSlot Contract 至少记录空间单元、时间窗、允许主体、优先�
 
 ## 蓝绿空间、公共空间与城市风貌
 
-概念绿地层按 provisional boundary 复算 `green_ratio=31.5058%`，不是批准绿地率 [metric:green_ratio]。六处可逆公共空间概念比例约 1.4959% [metric:public_space_ratio]。文化叙事为“**空间权利 + 时间权利**”：京张铁路提供共享时间的历史原型，中关村提供开放创新，AI 新文化提供透明规则、责任边界与人机协作 [standard:MOHURD-URBAN-DESIGN-MEASURES]。
+概念绿地层按 provisional boundary 复算 `green_ratio=31.5058%`，不是批准绿地率 [metric:green_ratio]；六处可逆公共空间概念比例约 1.4959% [metric:public_space_ratio]。本方案不把蓝绿系统当作静态“背景绿量”，而把它作为 T0 恒定权利的低技术底板：连续步行、无障碍、遮阴停留、安静空间和应急通行优先于任何 T2/T3 活动。京张一期已经建成开放、二期配套已形成新的慢行网络，因此近期设计重点是识别可进入、可停留、可切换与必须始终保持通畅的空间，而不是先新增大体量构筑物 [source:JZ-PARK-PHASE1-OFFICIAL] [source:JZ-PARK-PHASE2-2026]。
+
+公共空间的时权表达通过 `geometry/green_space.geojson` 与 `geometry/public_space.geojson` 的概念图层建立索引，六处时序空间只承担“规则可被看见和测试”的示范，不以 1.4959% 作为规划目标 [data:geometry/public_space.geojson#PUBLIC-001]。每个节点都应同时说明 T0 连续路径、可预约边界、安静时段、人工责任和失败回退；正式道路断面、树木现状、排水、市政、照明、文保和真实使用强度到位后再校核尺度与材料。城市风貌以“**空间权利 + 时间权利**”为叙事：铁路时刻轴、站点、会让线和恢复逻辑转译为导视、铺装、公共信息与活动系统，而不是用通用科技蓝光代替京张历史 [standard:MOHURD-URBAN-DESIGN-MEASURES]。
 
 ## 更新项目清单、实施政策与分期计划
 
-近期首先实施 **AI 原点 × 京张一期 TIME RIGHTS 1.0** 的 P0 两周基线 + P1 四周可逆小试，同步完成 TimeSlot Contract、公开时权表、T0 无障碍/应急校核和免 App 导航 [assumption:A-PILOT-001]。中期在 official polygon、道路、客流、活动和物流数据补齐后，以现场基线替换 proof 假设。远期只有在交通、安全、规划、市政、文保、权属与运营许可明确后，才讨论更高等级具身智能公共运行 [assumption:A-ROBOTICS-001]。
+实施策略遵循“**先运营验证，后空间扩展；先可逆小试，后资本建设**”。近期第一项目是 **AI 原点 × 京张一期 TIME RIGHTS 1.0**：先完成 P0 两周人工基线，再进入 P1 四周可逆小试，同步部署 TimeSlot Contract、公开时权表、T0 无障碍/应急校核和免 App 导航；其场地依据来自已建成开放的京张一期 [source:JZ-PARK-PHASE1-OFFICIAL]，机器可读协议位于 `visual/assets/ai-origin-time-rights-pilot.json` [data:visual/assets/ai-origin-time-rights-pilot.json]。近期项目还包括三重点区时权界面样机、公开状态牌、人工接管演练与 Annual Time Rights Review，均优先使用现有公共空间和可撤除设施。
+
+中期只有在 official polygon、道路/站口、真实人流、活动、物流、市政与管理边界补齐后，才把 P0/P1 的现场基线替换当前 proof 假设，重新计算冲突分钟、时序可达和空间可用率 [metric:peak_conflict_reduction_ratio]。若 T0 连续性、非 AI fallback、投诉响应或具名责任任何一项不达标，项目停留在 P0/P1，不进入扩展。远期才讨论更高等级具身智能公共运行、重点区空间改造和跨片区联动，前提是交通、安全、规划、市政、文保、权属与运营许可分别取得专业确认。该分期因此既是建设时序，也是“证据成熟度—授权等级”的升级路径 [depth:phasing_implementation]。
 
 ## 指标体系、面积复算与合规矩阵
 
@@ -137,7 +141,7 @@ TimeSlot Contract 至少记录空间单元、时间窗、允许主体、优先�
 
 ## 风险、版权与合规说明
 
-官方 polygon 缺失，所有 provisional-derived 数量和落位须重算 [assumption:A-BOUNDARY-001]。FAR、高度、道路、市政、文保、权属不自行推定 [assumption:A-CONTROLS-001]。AI 原点 Pilot 尚未授权、尚未运行 [assumption:A-PILOT-001]。机器人测试不等于公共部署许可；情景模型结果不等于现场绩效。基本公共服务不依赖人脸识别、持续个人追踪、强制 App 或单一供应商。核心图和模型为本方案原创/程序化生成，版权说明见 `report/copyright_statement.md`。
+官方 polygon 缺失，所有 provisional-derived 数量和落位须重算 [source:OFFICIAL-ANNOUNCEMENT]。FAR、高度、道路、市政、文保、权属不自行推定 [standard:MOHURD-CONTROL-DETAILED-PLANNING]。AI 原点 Pilot 尚未授权、尚未运行，所有 Gate 均为待验证目标 [data:visual/assets/ai-origin-time-rights-pilot.json]。机器人测试不等于公共部署许可；-70%、+25.9pp、+5.7% 等情景模型结果不等于现场绩效 [metric:peak_conflict_reduction_ratio]。基本公共服务不依赖人脸识别、持续个人追踪、强制 App 或单一供应商；任何现场数据采集优先采用聚合计数和人工观察。核心图和模型为本方案原创/程序化生成，版权说明见 `report/copyright_statement.md`。
 
 ## 参考资料
 
