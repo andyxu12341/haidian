@@ -18,7 +18,7 @@ iteration: "v0.5-site-grounded-pilot"
 
 Conventional urban design asks what goes where. An AI city must also ask **who has priority when, who exits during conflict, and how a failed state recovers**. Railway timetable, meet/pass, priority and recovery logic therefore become an operating prototype. `THE CITY TIMETABLE` is the system; **Time Rights** is the planning proposition.
 
-![Time Rights hero](assets/figures/time-rights-hero.svg)
+![Time Rights hero](assets/figures/time-rights-hero.en.svg)
 
 This is an open-call formal submission, not statutory planning, engineering approval or observed field performance.
 
@@ -30,7 +30,7 @@ Official SITE_BOUNDARY/key-area polygons and approved FAR, height, road redlines
 
 Site-grounded evidence now supports pilot selection. Jing-Zhang Railway Heritage Park Phase I is built and open from Qinghua East Road to Zhichun Road, about 2.5 km / 16.8 ha [source:JZ-PARK-PHASE1-OFFICIAL]. Phase II supporting works were completed in 2026; the northern section is about 30.01 ha with a fishbone cycling/running/walking network [source:JZ-PARK-PHASE2-2026]. Beijing AI Origin Community is about 3 km² with 30+ universities/research institutions, 230+ AI enterprises and about 100,000 AI-related students [source:AI-ORIGIN-2026-BJFGW]. A regulatory-plan draft for the corridor AI innovation district has gone through public consultation/feedback handling [source:JZ-CONTROL-PLAN-PUBLIC-2025]. These facts explain **why to pilot here**; they do not replace official competition polygons or unreleased statutory controls.
 
-![Research method](assets/figures/temporal-network-method.svg)
+![Research method](assets/figures/temporal-network-method.en.svg)
 
 ## Three-Level Scope Framework
 
@@ -54,7 +54,7 @@ T0 protects accessibility, emergency passage, basic walking and essential non-di
 
 A 24-hour street type becomes **section + timetable + rights contract**: people-first at 07:30, bounded T2 around 11:00, youth/community use around 19:30 and quiet/essential service around 23:00. T0 remains continuous [assumption:A-CONTROLS-001].
 
-![24h street section](assets/figures/street-section-24h.svg)
+![24h street section](assets/figures/street-section-24h.en.svg)
 
 ## Detailed Design of Key Areas
 
@@ -64,7 +64,7 @@ A 24-hour street type becomes **section + timetable + rights contract**: people-
 
 ### First executable pilot: AI Origin × Jing-Zhang Phase I | TIME RIGHTS 1.0
 
-The pilot does not wait for demolition or major capital construction. It uses the built Qinghua East Road–Zhichun Road segment to test whether youth activity, public service, demonstration and bounded technology testing can share real public space without sacrificing T0. The machine-readable protocol is `research/ai-origin-time-rights-pilot.json` [assumption:A-PILOT-001].
+The pilot does not wait for demolition or major capital construction. It uses the built Qinghua East Road–Zhichun Road segment to test whether youth activity, public service, demonstration and bounded technology testing can share real public space without sacrificing T0. The machine-readable protocol is `visual/assets/ai-origin-time-rights-pilot.json` [assumption:A-PILOT-001].
 
 - **P0 | two weeks:** manual baseline of entrances, accessibility, peaks, activity/quiet nodes, complaint/management paths and non-digital access; aggregate counts only.
 - **P1 | four weeks:** proposed windows pending operator confirmation: 07:30–09:30 people-first; 11:00–15:00 bounded T2; 18:30–21:00 youth/community; quiet/essential service after 21:00. T3 large events stay disabled.

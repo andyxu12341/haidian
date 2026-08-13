@@ -56,7 +56,7 @@
       "path": "self_check.json",
       "role": "self_check",
       "required": true,
-      "sha256": "2b003de2dd44dc9e96e8dcbb0bf1a0397de9b9a5294f7d48965d55c73b19ce5b"
+      "sha256": "8c8003da9359b7a95f9111796960a6337df647332dcae796455d0a250c1cca70"
     },
     {
       "path": "compliance_matrix.json",
@@ -211,7 +211,7 @@
       "required": true,
       "language": "en",
       "translation_of": "proposal.md",
-      "sha256": "9e582fd83b84c95c77a83a46def51c183d84a59c7fd49688942c82658806c212"
+      "sha256": "762c6f4fc606191012967c0e73eb836f63c7b069e2011e8c8d9a5539a5e65665"
     },
     {
       "path": "report/proposal.en.html",
@@ -219,7 +219,7 @@
       "required": true,
       "language": "en",
       "translation_of": "report/proposal.html",
-      "sha256": "f00a3e9d3b2e520f3e0a5f7486c088f72e84f39184244f83faa294f1dbf4c6cf"
+      "sha256": "d1ca8c2f597d56203f22ed654d05616338b709cd9ef6d8e5dfe19ea3cf05eaf4"
     },
     {
       "path": "drawings/a3-booklet.en.pdf",
