@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1.0",
+  "model_name": "Jingzhang Time Rights Temporal Network",
+  "status": "research_upgrade_before_formal_merge",
+  "objective": "Replace the 12-node conceptual proof with a site-grounded time-expanded network while keeping a strict separation between observed/public baselines and synthetic demand assumptions.",
+  "time_resolution_minutes": 15,
+  "daily_time_layers": 96,
+  "network_layers": [
+    {
+      "id": "L0_PEDESTRIAN_ACCESSIBLE",
+      "source_priority": ["OSM foot/wheelchair/crossing/barrier tags", "official accessibility evidence"],
+      "role": "T0 constant-rights backbone",
+      "hard_rule": "Must remain continuous through every scenario unless an emergency closure is explicitly represented."
+    },
+    {
+      "id": "L1_STREET_NETWORK",
+      "source_priority": ["OSM named ways and crossings"],
+      "role": "ordinary walking/cycling/service movement",
+      "hard_rule": "No road-redline or engineering-width claim from OSM."
+    },
+    {
+      "id": "L2_RAIL_TRANSIT",
+      "source_priority": ["official Beijing Subway station/first-last-train information", "official/open station inventory"],
+      "role": "scheduled temporal edges",
+      "hard_rule": "Service edges activate only within verified operating windows."
+    },
+    {
+      "id": "L3_POI_ACTIVITY",
+      "source_priority": ["OSM POI + opening_hours", "official venue hours where available"],
+      "role": "time-varying destination opportunities",
+      "hard_rule": "Unknown hours remain unknown; no invented opening schedule."
+    },
+    {
+      "id": "L4_TIME_RIGHTS",
+      "source_priority": ["our TimeSlot Contract"],
+      "role": "T0-T3 permissions, priorities, stop and rollback states",
+      "hard_rule": "AI may optimize within rights; it may not overwrite T0."
+    }
+  ],
+  "scenario_comparison": [
+    {
+      "id": "S0_STATIC_BASELINE",
+      "description": "Static spatial network without time-window coordination; used only as comparison model."
+    },
+    {
+      "id": "S1_ROUTINE_DAY",
+      "description": "Weekday with morning/evening human-priority windows and verified transit/POI schedules."
+    },
+    {
+      "id": "S2_TIME_RIGHTS",
+      "description": "Same service volume redistributed into lower-conflict windows under T0-T3 contracts."
+    },
+    {
+      "id": "S3_EVENT_DAY",
+      "description": "Human-confirmed event layer with high crowd load and automatic machine-activity withdrawal triggers."
+    },
+    {
+      "id": "S4_FAILURE_ROLLBACK",
+      "description": "Sensor/comms degradation or accessible-route conflict forces rollback to T0/T1."
+    }
+  ],
+  "primary_metrics": [
+    "temporal_closeness_centrality_C_i(t)",
+    "30_minute_accessible_opportunity_count",
+    "T0_route_continuity_ratio",
+    "human_machine_conflict_minutes",
+    "reversible_public_space_available_share",
+    "service_volume_preservation_ratio",
+    "worst_group_detour_or_wait_proxy",
+    "rollback_recovery_time"
+  ],
+  "proof_model_already_completed": {
+    "status": "conceptual_not_field_calibrated",
+    "nodes": 12,
+    "time_layers": 96,
+    "space_time_states": 1152,
+    "results": {
+      "peak_human_machine_conflict_hours": {"baseline": 10.0, "time_rights": 3.0, "change_percent": -70.0},
+      "peak_reversible_space_availability_percent": {"baseline": 63.0, "time_rights": 88.9, "change_percentage_points": 25.9},
+      "peak_30min_accessible_opportunities": {"baseline": 3.70, "time_rights": 3.91, "change_percent": 5.7},
+      "machine_service_hours_per_day": {"baseline": 10.0, "time_rights": 10.0, "change_percent": 0.0}
+    },
+    "claim_boundary": "Proof-of-method only. Values are not observed Jingzhang performance and will be replaced/recomputed after site-grounded network and time data are assembled."
+  },
+  "data_gap_register": [
+    "official precise project and key-area polygons",
+    "observed grouped OD or station-by-time passenger counts",
+    "verified as-built accessibility routes and crossing controls",
+    "official road redlines/widths",
+    "complete POI opening-hours coverage",
+    "local robot/logistics service demand and operating permits"
+  ]
+}

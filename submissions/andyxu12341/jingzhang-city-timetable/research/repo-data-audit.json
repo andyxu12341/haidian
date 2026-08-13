@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1.0",
+  "project": "Jingzhang Time Rights / 京张时权",
+  "purpose": "Audit reusable evidence already present in merged submissions before introducing any value into the Time Rights model.",
+  "rules": [
+    "Never treat another submission's synthetic or illustrative outputs as observed Haidian data.",
+    "Prefer original official/public sources over copying another participant's derived asset.",
+    "OSM-derived geometry may be reconstructed from OSM with ODbL attribution; repository files are used as cross-checks and discovery leads unless their reuse license explicitly permits republication.",
+    "Design conclusions, scenario claims and visual assets from other submissions are not reused as our design output.",
+    "Every imported baseline receives source_class, reuse_mode and confidence fields before it can enter analysis."
+  ],
+  "evidence_classes": {
+    "A": "official_public fact or regulation; may support formal factual claims within stated scope",
+    "B": "OSM/public mapped existing condition; usable as analytical background with attribution, not legal redline",
+    "C": "repository method/code structure; reusable only as method inspiration or independently reimplemented workflow",
+    "D": "synthetic/illustrative simulation; never a local baseline; usable only for sensitivity/proof-of-method",
+    "E": "agent-generated design geometry/claim; not a factual baseline"
+  },
+  "audited_assets": [
+    {
+      "id": "REPO-OSM-ROAD-SKELETON",
+      "repo_path": "submissions/ryanuo/twin-rails-ai-belt/geometry/roads.geojson",
+      "evidence_class": "B",
+      "observed": "Existing-condition features explicitly marked source_type=osm include 学院路、西土城路、知春路、成府路、清华东路、北四环西路、大钟寺东路.",
+      "reuse_mode": "source-discovery-and-cross-check; reconstruct from OSM rather than republish participant asset",
+      "limitations": "OSM-level approximation; not a road redline, survey or engineering alignment."
+    },
+    {
+      "id": "REPO-OSM-CROSS-STREET-DETAIL",
+      "repo_path": "submissions/jianshi-codes/jingzhang-cross-streets/geometry/roads.geojson",
+      "evidence_class": "B/E",
+      "observed": "Detailed coordinate chains cite alignment_basis=OSM_named_way and source_ref=OSM-20260810, but features are packaged as agent-generated design proposals.",
+      "reuse_mode": "use named-way and OSM-source hints only; do not copy design route geometry into our baseline",
+      "limitations": "Road widths and official redlines remain unknown."
+    },
+    {
+      "id": "REPO-JZ-PARK-BASELINE",
+      "repo_path": "submissions/feixukeji/jingzhang-encounter-commons/visual/assets/site-baseline-audit.json",
+      "evidence_class": "A",
+      "observed": "The audit points to official Beijing/Haidian sources for Phase I opening and Phase II planned corridor facts, while clearly separating planned counts from current operating status.",
+      "reuse_mode": "follow original official source URLs and independently cite/restate facts; do not copy participant inference layer",
+      "limitations": "Planned entrances, links and activity areas are not automatically current/open/accessible."
+    },
+    {
+      "id": "REPO-COMMUTE-SANDBOX",
+      "repo_path": "submissions/147228/commute-co-benefit-jingzhang/visual/assets/regional-scale-commute.json",
+      "evidence_class": "D",
+      "observed": "File self-identifies as regional_population_scale_synthetic_two_peak_flow_not_local_OD; OD assignment and modal parameters are synthetic.",
+      "reuse_mode": "method-structure-only; no numerical values imported",
+      "limitations": "Not observed OD, not station counts, not calibrated local performance."
+    },
+    {
+      "id": "REPO-MOBILITY-SANDBOX",
+      "repo_path": "submissions/147228/commute-co-benefit-jingzhang/visual/assets/movement-simulation.json",
+      "evidence_class": "D",
+      "observed": "File self-identifies as illustrative_design_scenario_not_local_baseline and lists the calibration inputs needed before local claims.",
+      "reuse_mode": "reuse variable taxonomy and validation logic only; independently implement Time Rights experiment",
+      "limitations": "Mode demand, capacity and performance readouts are illustrative."
+    },
+    {
+      "id": "REPO-OFFICIAL-SOURCE-INDEX",
+      "repo_path": "submissions/dw-zhu-si/jingzhang-common-time/sources.json",
+      "evidence_class": "A",
+      "observed": "Provides direct official links for Haidian district planning, Jingzhang AI district control-plan notice, Jingzhang Railway Heritage Park Phase I and participatory planning background.",
+      "reuse_mode": "use as discovery index, then cite original official publishers in our sources.json",
+      "limitations": "The participant source registry itself is not upgraded to official authority."
+    }
+  ],
+  "current_decision": {
+    "safe_to_integrate_now": [
+      "official Jingzhang park facts via original government sources",
+      "OSM named road/rail/POI baseline after independent reconstruction and ODbL attribution",
+      "method taxonomy for grouped flows, accessibility, queues, fallback and calibration requirements"
+    ],
+    "not_safe_to_integrate_as_fact": [
+      "synthetic population shares",
+      "synthetic OD matrices",
+      "illustrative metro/bus capacities and headways",
+      "participant design routes, performance scores or scenario outcomes"
+    ]
+  }
+}
